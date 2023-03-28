@@ -1,6 +1,6 @@
 import ky from "ky"
 import type { NextPage, InferGetServerSidePropsType } from "next"
-
+import { AOHARU_PANELS_URL } from "@/consts"
 import type { Panel } from "@/types"
 
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>
@@ -15,9 +15,7 @@ const Page: NextPage<Props> = ({ panels }) => {
 }
 
 export const getServerSideProps = async () => {
-  const panels = await ky
-    .get("https://m19e.github.io/bluearchive-4panel/panels/aoharu.json")
-    .json<Panel[]>()
+  const panels = await ky.get(AOHARU_PANELS_URL).json<Panel[]>()
 
   return {
     props: {
