@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "GenEiLateGo";
+  src: url("/fonts/GenEiLateGoN_v2.ttf");
+}
+
+@font-face {
+  font-family: "GenEiKoburiMin";
+  src: url("/fonts/GenEiKoburiMin6-R.ttf");
+}
+
+.font-latego {
+  font-family: "GenEiLateGo";
+}
+
+.font-koburi {
+  font-family: "GenEiKoburiMin";
+}

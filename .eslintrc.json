@@ -1,0 +1,161 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:storybook/recommended",
+    "plugin:tailwindcss/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "plugins": [
+    "unused-imports"
+  ],
+  "rules": {
+    "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
+    "tailwindcss/no-custom-classname": "off",
+    "unused-imports/no-unused-imports": "warn",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/consistent-type-imports": "warn",
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          [
+            "parent",
+            "sibling"
+          ],
+          "object",
+          "type",
+          "index"
+        ],
+        // "newlines-between": "always", // at least one new line between each group will be enforced, and new lines inside a group will be forbidden
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "pathGroups": [
+          {
+            "pattern": "next",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "next/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "next-**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "react",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "react-**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/consts",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/types",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/utils",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/hooks",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/types/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/hooks/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/utils/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/pages/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/components/page/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/components/model/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/components/ui/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/components/templates/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/components/organisms/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/components/molecules/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/components/atoms/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@/styles/**",
+            "group": "index",
+            "position": "before"
+          }
+        ]
+      }
+    ]
+  }
+}
