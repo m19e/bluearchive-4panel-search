@@ -19,3 +19,11 @@
 .font-koburi {
   font-family: "GenEiKoburiMin";
 }
+
+.scrollbar-hidden::-webkit-scrollbar {
+  @apply hidden;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
