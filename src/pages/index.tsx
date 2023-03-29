@@ -1,14 +1,16 @@
 import type { NextPage, InferGetServerSidePropsType } from "next"
 import { getAllPanels } from "@/utils"
 
-import { PanelList } from "@/components/molecules/PanelList"
+import { PanelList, SkewedPanelList } from "@/components/molecules/PanelList"
 
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>
 
 const Page: NextPage<Props> = ({ panels }) => {
   return (
     <>
-      <SkewScroll />
+      <div className="flex justify-center w-full">
+        <SkewedPanelList panels={panels.aoharu} />
+      </div>
       <div className="p-4 space-y-4">
         <h1 className="text-3xl">ブルアカ4コマ検索</h1>
         <h2 className="text-xl">ぶるーあーかいぶっ！</h2>
@@ -24,19 +26,6 @@ const Page: NextPage<Props> = ({ panels }) => {
   )
 }
 
-const SkewScroll = () => {
-  return (
-    <div className="flex justify-center w-full bg-gray-300">
-      <div className="overflow-y-scroll p-2 space-y-2 w-1/2 h-40 bg-white border transform-gpu -skew-x-12 scrollbar-hidden">
-        {[...Array(7)].map((_, i) => (
-          <div key={i} className="px-4 w-full bg-gray-200">
-            <p className="skew-x-12">text</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
 
 export const getServerSideProps = async () => {
   const panels = await getAllPanels()
