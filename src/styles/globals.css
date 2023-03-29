@@ -27,3 +27,21 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.skewed-list {
+  @apply -skew-x-[30deg];
+}
+
+.skewed-item p {
+  @apply skew-x-[30deg];
+}
+
+.triangle {
+  /* width: 17.3px; */
+  /* height: 15px; */
+  width: 52px;
+  height: 45px;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+
+  @apply bg-sky-100;
+}
