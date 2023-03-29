@@ -12,12 +12,50 @@
   src: url("/fonts/GenEiKoburiMin6-R.ttf");
 }
 
-.font-latego {
-  font-family: "GenEiLateGo";
+@font-face {
+  font-family: "RoundedMPlus";
+  src: url("/fonts/rounded/rounded-mplus-1c-thin.ttf");
+  font-weight: 100;
 }
-
-.font-koburi {
-  font-family: "GenEiKoburiMin";
+@font-face {
+  font-family: "RoundedMPlus";
+  src: url("/fonts/rounded/rounded-mplus-1c-light.ttf");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "RoundedMPlus";
+  src: url("/fonts/rounded/rounded-mplus-1c-light.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "RoundedMPlus";
+  src: url("/fonts/rounded/rounded-mplus-1c-regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "RoundedMPlus";
+  src: url("/fonts/rounded/rounded-mplus-1c-medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "RoundedMPlus";
+  src: url("/fonts/rounded/rounded-mplus-1c-medium.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "RoundedMPlus";
+  src: url("/fonts/rounded/rounded-mplus-1c-bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "RoundedMPlus";
+  src: url("/fonts/rounded/rounded-mplus-1c-heavy.ttf");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "RoundedMPlus";
+  src: url("/fonts/rounded/rounded-mplus-1c-black.ttf");
+  font-weight: 900;
 }
 
 .scrollbar-hidden::-webkit-scrollbar {
