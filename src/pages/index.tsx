@@ -10,19 +10,23 @@ const Page: NextPage<Props> = ({ panels }) => {
     <>
       <div className="p-4 space-y-4">
         <h1 className="text-3xl">ブルアカ4コマ検索</h1>
-        <h2 className="text-xl">ぶるーあーかいぶっ！</h2>
         <div className="flex justify-center w-full">
-          <SkewedPanelList panels={panels.ja.reverse()} />
+          <SkewedPanelList
+            title="ぶるーあーかいぶっ！"
+            panels={panels.ja.reverse()}
+          />
         </div>
-        <div className="my-2 w-full h-[1px] bg-black"></div>
-        <h2 className="text-xl">Blue Archive Official 4-Panel Manga</h2>
         <div className="flex justify-center w-full">
-          <SkewedPanelList panels={panels.en} />
+          <SkewedPanelList
+            title="Official 4-Panel Manga"
+            panels={panels.en.reverse()}
+          />
         </div>
-        <div className="my-2 w-full h-[1px] bg-black"></div>
-        <h2 className="text-xl">あおはるレコード</h2>
         <div className="flex justify-center w-full">
-          <SkewedPanelList panels={panels.aoharu} />
+          <SkewedPanelList
+            title="あおはるレコード"
+            panels={panels.aoharu.reverse()}
+          />
         </div>
       </div>
     </>
