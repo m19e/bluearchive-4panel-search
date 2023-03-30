@@ -9,10 +9,8 @@ type Props = {
   title: string
   panels: Panel[]
 }
-export const SkewedPanelList = ({ title, panels }: Props) => {
-  const items = panels.map((panel) => (
-    <SkewedPanelItem key={panel.id} {...panel} />
-  ))
+export const PanelList = ({ title, panels }: Props) => {
+  const items = panels.map((panel) => <PanelItem key={panel.id} {...panel} />)
 
   return (
     <div className="overflow-y-scroll p-2 my-2 space-y-2 w-full max-w-md h-64 min-h-screen bg-sky-100 skewed-list scrollbar-hidden">
@@ -37,7 +35,7 @@ const Category = ({ title }: { title: string }) => {
   )
 }
 
-const SkewedPanelItem = ({ id, title, students, href, deleted }: Panel) => {
+const PanelItem = ({ id, title, students, href, deleted }: Panel) => {
   return (
     <div className="flex overflow-hidden relative gap-1 items-center pt-2 pr-8 pb-3 pl-6 font-rounded bg-white rounded-sm border-l-4 border-sky-300 shadow skewed-item">
       <Episode id={id} />
