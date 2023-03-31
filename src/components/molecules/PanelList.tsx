@@ -1,22 +1,35 @@
-import type { Panel as PanelType, Student } from "@/types"
+import type { PanelData } from "@/types"
 
 import { Episode } from "@/components/molecules/Episode"
 import { Marks } from "@/components/atoms/Marks"
 
-type Panel = Omit<PanelType, "students"> & { students: Student[] }
+type CategoryData = {
+  title: string
+  panels: PanelData[]
+}
 
 type Props = {
-  title: string
-  panels: Panel[]
+  data: CategoryData[]
 }
-export const PanelList = ({ title, panels }: Props) => {
+
+export const PanelList = ({ data }: Props) => {
+  const categories = data.map((d) => <CategoryList key={d.title} {...d} />)
+
+  return (
+    <div className="overflow-y-scroll p-2 my-2 space-y-2 w-full max-w-md h-96 bg-sky-100 skewed-list scrollbar-hidden">
+      {categories}
+    </div>
+  )
+}
+
+const CategoryList = ({ title, panels }: CategoryData) => {
   const items = panels.map((panel) => <PanelItem key={panel.id} {...panel} />)
 
   return (
-    <div className="overflow-y-scroll p-2 my-2 space-y-2 w-full max-w-md h-64 min-h-screen bg-sky-100 skewed-list scrollbar-hidden">
+    <>
       <Category title={title} />
       {items}
-    </div>
+    </>
   )
 }
 
@@ -35,7 +48,7 @@ const Category = ({ title }: { title: string }) => {
   )
 }
 
-const PanelItem = ({ id, title, students, href, deleted }: Panel) => {
+const PanelItem = ({ id, title, students, href, deleted }: PanelData) => {
   return (
     <div className="flex overflow-hidden relative gap-1 items-center pt-2 pr-8 pb-3 pl-6 font-rounded bg-white rounded-sm border-l-4 border-sky-300 shadow skewed-item">
       <Episode id={id} />

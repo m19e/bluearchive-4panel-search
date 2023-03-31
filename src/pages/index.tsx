@@ -1,44 +1,78 @@
 import type { NextPage, InferGetServerSidePropsType } from "next"
+
+import type { Student, StudentData, PanelData, SchoolID } from "@/types"
 import { getAllPanels } from "@/utils"
 
 import { PanelList } from "@/components/molecules/PanelList"
+import { StudentList } from "@/components/molecules/StudentList"
 
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>
 
-const Page: NextPage<Props> = ({ panels }) => {
+const Page: NextPage<Props> = ({ panels, students }) => {
+  const data = [
+    { title: "ぶるーあーかいぶっ！", panels: panels.ja.reverse() },
+    { title: "あおはるレコード", panels: panels.aoharu.reverse() },
+    { title: "Official 4-Panel Manga", panels: panels.en.reverse() },
+  ]
+
   return (
     <>
       <div className="p-4 space-y-4">
-        <h1 className="text-3xl">ブルアカ4コマ検索</h1>
+        <StudentList data={students} />
         <div className="flex justify-center w-full">
-          <PanelList
-            title="ぶるーあーかいぶっ！"
-            panels={panels.ja.reverse()}
-          />
-        </div>
-        <div className="flex justify-center w-full">
-          <PanelList
-            title="Official 4-Panel Manga"
-            panels={panels.en.reverse()}
-          />
-        </div>
-        <div className="flex justify-center w-full">
-          <PanelList
-            title="あおはるレコード"
-            panels={panels.aoharu.reverse()}
-          />
+          <PanelList data={data} />
         </div>
       </div>
     </>
   )
 }
 
+const getGroupedStudents = (panels: PanelData[]) => {
+  const result: { [key in SchoolID]: Student[] } = {
+    kivotos: [],
+    prime_student_council: [],
+    abydos: [],
+    gehenna: [],
+    millennium: [],
+    trinity: [],
+    hyakkiyako: [],
+    shanhaijing: [],
+    red_winter: [],
+    valkyrie: [],
+    arius: [],
+    srt: [],
+    kronos: [],
+    others_students: [],
+    etc: [],
+  }
+
+  const uniq = panels.reduce((prev, panel) => {
+    panel.students.forEach((s) => (prev[s.id] = s))
+    return prev
+  }, {} as StudentData)
+
+  Object.values(uniq).forEach((student) => {
+    const { school } = student
+    if (school) {
+      result[school] = [...result[school], student]
+    }
+  })
+
+  return result
+}
+
 export const getServerSideProps = async () => {
   const panels = await getAllPanels()
+  const students = getGroupedStudents([
+    ...panels.ja,
+    ...panels.en,
+    ...panels.aoharu,
+  ])
 
   return {
     props: {
       panels,
+      students,
     },
   }
 }

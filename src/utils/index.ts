@@ -6,7 +6,7 @@ import {
   PLAYABLE_URL,
   NPC_URL,
 } from "@/consts"
-import type { Panel, Student } from "@/types"
+import type { Panel, PanelData, StudentData } from "@/types"
 
 type PanelType = "ja" | "en" | "aoharu"
 const urls: { [key in PanelType]: string } = {
@@ -22,8 +22,6 @@ export const getPanels = async (type: PanelType) => {
   return panels.map((p) => ({ ...p, id: `${type}-${p.id}` }))
 }
 
-type StudentData = Record<string, Student>
-
 const getAllStudents = async () => {
   const playable = await ky(PLAYABLE_URL).json<StudentData>()
   const npc = await ky(NPC_URL).json<StudentData>()
@@ -34,7 +32,7 @@ const getAllStudents = async () => {
 export const getAllPanels = async () => {
   const allStudents = await getAllStudents()
 
-  const replaceStudents = (panels: Panel[]) => {
+  const replaceStudents = (panels: Panel[]): PanelData[] => {
     return panels.map((p) => ({
       ...p,
       students: p.students.map((s) => allStudents[s]),
