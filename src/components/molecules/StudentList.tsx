@@ -1,6 +1,8 @@
 import { SCHOOLS } from "@/consts"
 import type { Student, SchoolID } from "@/types"
 
+import { StudentItem } from "@/components/molecules/StudentItem"
+
 type Props = {
   data: { [key in SchoolID]: Student[] }
 }
@@ -19,7 +21,7 @@ export const StudentList = ({ data }: Props) => {
 const School = ({ id, students }: { id: SchoolID; students: Student[] }) => {
   if (!students.length) return null
   const studentList = students.map((s) => (
-    <StudentItem key={s.id} id={id} student={s} />
+    <StudentItem key={s.id} student={s} />
   ))
 
   return (
@@ -30,23 +32,6 @@ const School = ({ id, students }: { id: SchoolID; students: Student[] }) => {
         </span>
       </h3>
       <div className="flex flex-wrap gap-2 mt-2">{studentList}</div>
-    </div>
-  )
-}
-
-const StudentItem = ({ id, student }: { id: SchoolID; student: Student }) => {
-  const borderR = `border-r-${id}`
-  return (
-    <div className={`p-1 rounded-sm bg-${id}`}>
-      <div className="relative py-1 px-2 bg-white">
-        <p className={`font-bold text-sm text-${id}`}>{student.ja}</p>
-        <div
-          className={
-            "absolute right-0 bottom-0 w-0 h-0 border-t-[0.5rem] border-r-[0.5rem] border-t-gray-300 " +
-            borderR
-          }
-        ></div>
-      </div>
     </div>
   )
 }
