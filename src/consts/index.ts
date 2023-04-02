@@ -28,10 +28,6 @@ export const SCHOOLS = {
   arius: { id: "arius", ja: "アリウス", en: "Arius" },
   srt: { id: "srt", ja: "SRT", en: "SRT" },
   kronos: { id: "kronos", ja: "クロノス", en: "Kronos" },
-  others_students: {
-    id: "others_students",
-    ja: "不明",
-    en: "Others Students",
-  },
+  others_students: { id: "others_students", ja: "不明", en: "Others Students" },
   etc: { id: "etc", ja: "その他", en: "ETC" },
 } as const
