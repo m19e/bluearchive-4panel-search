@@ -81,3 +81,10 @@
   height: 45px;
   clip-path: polygon(0 100%, 50% 0, 100% 100%);
 }
+
+a,
+p,
+span,
+h3 {
+  transform: rotate(0.05deg);
+}
