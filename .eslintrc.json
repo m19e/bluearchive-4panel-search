@@ -25,6 +25,21 @@
       }
     ],
     "@typescript-eslint/consistent-type-imports": "warn",
+    "sort-imports": [
+      "error",
+      {
+        "allowSeparatedGroups": true,
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": [
+          "none",
+          "all",
+          "multiple",
+          "single"
+        ]
+      }
+    ],
     "import/order": [
       "warn",
       {
@@ -49,6 +64,16 @@
           "caseInsensitive": true
         },
         "pathGroups": [
+          {
+            "pattern": "{next,next/**}",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          },
           {
             "pattern": "@/consts",
             "group": "internal",
