@@ -1,4 +1,6 @@
+import { useState } from "react"
 import type { SchoolID, Student } from "@/types"
+import { useDebounceCallback } from "@/hooks/useDebounce"
 import { useFuse } from "@/hooks/useFuse"
 
 import { StudentList } from "@/components/molecules/StudentList"
@@ -40,21 +42,30 @@ export const Search = ({ data }: Props) => {
   const { result, search, term, reset } = useFuse({
     data: Object.values(data).flat(),
     options: {
+      threshold: 0.2,
       keys: ["ja", "en"],
     },
   })
+  const [loading, setLoading] = useState(false)
+  const debounce = useDebounceCallback()
 
-  const groups = convertStudentToGroup(result)
+  const handleChange = (value: string) => {
+    !loading && setLoading(true)
+    debounce(() => {
+      search(value)
+      setLoading(false)
+    })
+  }
 
   return (
     <div>
       <input
-        className="p-2 w-full border"
-        onChange={(e) => search(e.target.value)}
-        value={term}
+        className="p-2 w-full bg-sky-50 border"
+        onChange={(e) => handleChange(e.target.value)}
         placeholder="Input student name"
       />
-      <StudentList data={groups} />
+      {loading && <button className="btn loading">loading</button>}
+      <StudentList data={convertStudentToGroup(result)} />
     </div>
   )
 }
