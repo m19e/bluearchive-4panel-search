@@ -8,8 +8,9 @@ type SearchProps<T> = {
 }
 
 const fuzzySearch = <T>({ fuse, data, term }: SearchProps<T>) => {
-  const result = fuse.search(`${term.trim()}`)
-  return term ? result.map((r) => r.item) : data
+  const trimmed = term.trim()
+  const result = fuse.search(`${trimmed}`)
+  return trimmed ? result.map((r) => r.item) : data
 }
 
 type Props<T> = {
