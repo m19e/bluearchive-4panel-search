@@ -50,31 +50,6 @@
         },
         "pathGroups": [
           {
-            "pattern": "next",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "next/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "next-**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "react",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "react-**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
             "pattern": "@/consts",
             "group": "internal",
             "position": "before"
