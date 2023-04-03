@@ -1,5 +1,5 @@
 import { SCHOOLS } from "@/consts"
-import type { Student, SchoolID } from "@/types"
+import type { SchoolID, Student } from "@/types"
 
 import { StudentItem } from "@/components/molecules/StudentItem"
 
@@ -12,7 +12,9 @@ export const StudentList = ({ data }: Props) => {
     <School key={id} id={id as SchoolID} students={students} />
   ))
 
-  return <div className="flex flex-wrap gap-4 font-rounded">{schools}</div>
+  return (
+    <div className="flex flex-wrap gap-2 font-rounded md:gap-4">{schools}</div>
+  )
 }
 
 // const textForBuild =
@@ -25,13 +27,15 @@ const School = ({ id, students }: { id: SchoolID; students: Student[] }) => {
   ))
 
   return (
-    <div className="max-w-[calc(50%-1rem)]">
+    <div className="max-w-full md:max-w-[calc(50%-1rem)]">
       <h3 className={`px-2 text-lg font-bold bg-${id}`}>
         <span className="text-white">
           {id === "kivotos" ? "シャーレ" : SCHOOLS[id].ja}
         </span>
       </h3>
-      <div className="flex flex-wrap gap-2 mt-2">{studentList}</div>
+      <div className="flex flex-wrap gap-1 mt-1 md:gap-2 md:mt-2">
+        {studentList}
+      </div>
     </div>
   )
 }
