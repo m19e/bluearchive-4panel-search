@@ -1,5 +1,5 @@
-import Fuse from "fuse.js"
 import { useState } from "react"
+import Fuse from "fuse.js"
 
 type SearchProps<T> = {
   fuse: Fuse<T>
@@ -8,7 +8,7 @@ type SearchProps<T> = {
 }
 
 const fuzzySearch = <T>({ fuse, data, term }: SearchProps<T>) => {
-  const result = fuse.search(`${term}`)
+  const result = fuse.search(`${term.trim()}`)
   return term ? result.map((r) => r.item) : data
 }
 
