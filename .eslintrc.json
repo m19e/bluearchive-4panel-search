@@ -25,6 +25,21 @@
       }
     ],
     "@typescript-eslint/consistent-type-imports": "warn",
+    "sort-imports": [
+      "error",
+      {
+        "allowSeparatedGroups": true,
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": [
+          "none",
+          "all",
+          "multiple",
+          "single"
+        ]
+      }
+    ],
     "import/order": [
       "warn",
       {
@@ -50,28 +65,13 @@
         },
         "pathGroups": [
           {
-            "pattern": "next",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "next/**",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "next-**",
-            "group": "internal",
+            "pattern": "{next,next/**}",
+            "group": "builtin",
             "position": "before"
           },
           {
             "pattern": "react",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "react-**",
-            "group": "internal",
+            "group": "builtin",
             "position": "before"
           },
           {

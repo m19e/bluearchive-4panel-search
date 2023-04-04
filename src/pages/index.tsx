@@ -1,10 +1,10 @@
-import type { NextPage, InferGetServerSidePropsType } from "next"
+import type { InferGetServerSidePropsType, NextPage } from "next"
 
-import type { Student, StudentData, PanelData, SchoolID } from "@/types"
+import type { PanelData, SchoolID, Student, StudentData } from "@/types"
 import { getAllPanels } from "@/utils"
 
+import { Search } from "@/components/organisms/Search"
 import { PanelList } from "@/components/molecules/PanelList"
-import { StudentList } from "@/components/molecules/StudentList"
 
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>
 
@@ -18,7 +18,7 @@ const Page: NextPage<Props> = ({ panels, students }) => {
   return (
     <>
       <div className="p-4 space-y-4">
-        <StudentList data={students} />
+        <Search data={students} />
         <div className="flex justify-center w-full">
           <PanelList data={data} />
         </div>
