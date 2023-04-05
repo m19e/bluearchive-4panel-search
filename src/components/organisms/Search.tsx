@@ -88,7 +88,20 @@ export const Search = ({ data }: Props) => {
           )}
         </div>
       </div>
-      <StudentList data={convertStudentToGroup(result)} />
+      <div className="relative min-h-16">
+        {isEmpty ? (
+          <div className="flex absolute inset-0 justify-center items-center border-sky-50">
+            <p className="text-sm font-medium text-neutral">
+              検索にヒットする生徒がいません
+            </p>
+          </div>
+        ) : (
+          <StudentList data={convertStudentToGroup(result)} />
+        )}
+        {loading && (
+          <div className="absolute inset-0 opacity-50 bg-neutral"></div>
+        )}
+      </div>
     </div>
   )
 }
