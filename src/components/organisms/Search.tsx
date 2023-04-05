@@ -58,15 +58,17 @@ export const Search = ({ data }: Props) => {
     })
   }
 
+  const isEmpty = !result.length
+
   return (
-    <div className="space-y-2">
-      <div className="relative">
+    <div className="p-2 space-y-2">
+      <div className="relative p-2 rounded-sm bg-neutral/50">
         <input
           className="p-2 w-full font-rounded font-medium bg-sky-50 rounded border-2 border-gray-200 outline-none shadow-inner"
           onChange={(e) => handleChange(e.target.value)}
           placeholder="検索したい生徒の名前を入力"
         />
-        <div className="flex absolute top-0 right-0 items-center px-2 h-full">
+        <div className="flex absolute top-0 right-0 items-center px-4 h-full">
           {loading ? (
             <div className="text-white btn btn-sm btn-circle loading"></div>
           ) : (
