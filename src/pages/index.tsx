@@ -17,7 +17,7 @@ const Page: NextPage<Props> = ({ panels, students }) => {
 
   return (
     <>
-      <div className="p-4 space-y-4">
+      <div className="p-4 space-y-4 min-h-screen bg-pattern">
         <Search data={students} />
         <div className="flex justify-center w-full">
           <PanelList data={data} />
