@@ -14,6 +14,7 @@
   "dependencies": {
     "daisyui": "^2.6.0",
     "fuse.js": "^6.6.2",
+    "jotai": "^2.0.3",
     "ky": "^0.33.3",
     "next": "12.0.9",
     "next-themes": "^0.1.1",
