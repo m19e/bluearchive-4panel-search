@@ -90,6 +90,11 @@
             "position": "before"
           },
           {
+            "pattern": "@/stores",
+            "group": "internal",
+            "position": "before"
+          },
+          {
             "pattern": "@/hooks",
             "group": "internal",
             "position": "before"
