@@ -1,6 +1,7 @@
 import type { InferGetServerSidePropsType, NextPage } from "next"
 
-import type { PanelData, SchoolID, Student, StudentData } from "@/types"
+import { EMPTY_GROUPED_STUDENTS } from "@/consts"
+import type { PanelData, StudentData } from "@/types"
 import { getAllPanels } from "@/utils"
 
 import { Search } from "@/components/organisms/Search"
@@ -28,23 +29,7 @@ const Page: NextPage<Props> = ({ panels, students }) => {
 }
 
 const getGroupedStudents = (panels: PanelData[]) => {
-  const result: { [key in SchoolID]: Student[] } = {
-    kivotos: [],
-    prime_student_council: [],
-    abydos: [],
-    gehenna: [],
-    millennium: [],
-    trinity: [],
-    hyakkiyako: [],
-    shanhaijing: [],
-    red_winter: [],
-    valkyrie: [],
-    arius: [],
-    srt: [],
-    kronos: [],
-    others_students: [],
-    etc: [],
-  }
+  const result = Object.assign({}, EMPTY_GROUPED_STUDENTS)
 
   const uniq = panels.reduce((prev, panel) => {
     panel.students.forEach((s) => (prev[s.id] = s))

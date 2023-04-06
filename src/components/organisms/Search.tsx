@@ -1,29 +1,14 @@
 import { useState } from "react"
 
-import type { SchoolID, Student } from "@/types"
+import { EMPTY_GROUPED_STUDENTS } from "@/consts"
+import type { Student } from "@/types"
 import { useDebounceCallback } from "@/hooks/useDebounce"
 import { useFuse } from "@/hooks/useFuse"
 
 import { StudentList } from "@/components/molecules/StudentList"
 
 const convertStudentToGroup = (students: Student[]) => {
-  const result: { [key in SchoolID]: Student[] } = {
-    kivotos: [],
-    prime_student_council: [],
-    abydos: [],
-    gehenna: [],
-    millennium: [],
-    trinity: [],
-    hyakkiyako: [],
-    shanhaijing: [],
-    red_winter: [],
-    valkyrie: [],
-    arius: [],
-    srt: [],
-    kronos: [],
-    others_students: [],
-    etc: [],
-  }
+  const result = Object.assign({}, EMPTY_GROUPED_STUDENTS)
 
   students.forEach((student) => {
     const { school } = student
@@ -36,7 +21,7 @@ const convertStudentToGroup = (students: Student[]) => {
 }
 
 type Props = {
-  data: { [key in SchoolID]: Student[] }
+  data: typeof EMPTY_GROUPED_STUDENTS
 }
 
 export const Search = ({ data }: Props) => {
