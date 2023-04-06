@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 import { EMPTY_GROUPED_STUDENTS } from "@/consts"
-import type { Student } from "@/types"
+import type { GroupedStudents, Student } from "@/types"
 import { useDebounceCallback } from "@/hooks/useDebounce"
 import { useFuse } from "@/hooks/useFuse"
 
@@ -21,7 +21,7 @@ const convertStudentToGroup = (students: Student[]) => {
 }
 
 type Props = {
-  data: typeof EMPTY_GROUPED_STUDENTS
+  data: GroupedStudents
 }
 
 export const Search = ({ data }: Props) => {

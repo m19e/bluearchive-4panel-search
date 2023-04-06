@@ -1,4 +1,4 @@
-import type { SCHOOLS } from "@/consts"
+import type { EMPTY_GROUPED_STUDENTS, SCHOOLS } from "@/consts"
 
 export type Panel = {
   id: string
@@ -19,3 +19,5 @@ export type Student = {
 export type StudentData = Record<string, Student>
 
 export type PanelData = Omit<Panel, "students"> & { students: Student[] }
+
+export type GroupedStudents = typeof EMPTY_GROUPED_STUDENTS
