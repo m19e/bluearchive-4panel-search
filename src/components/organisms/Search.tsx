@@ -2,9 +2,11 @@ import { useState } from "react"
 
 import { EMPTY_GROUPED_STUDENTS } from "@/consts"
 import type { GroupedStudents, Student } from "@/types"
+import { useSelectedStudents } from "@/hooks"
 import { useDebounceCallback } from "@/hooks/useDebounce"
 import { useFuse } from "@/hooks/useFuse"
 
+import { StudentItem } from "@/components/molecules/StudentItem"
 import { StudentList } from "@/components/molecules/StudentList"
 
 const convertStudentToGroup = (students: Student[]) => {
@@ -34,6 +36,7 @@ export const Search = ({ data }: Props) => {
   })
   const [loading, setLoading] = useState(false)
   const debounce = useDebounceCallback()
+  const { selectedStudents } = useSelectedStudents()
 
   const handleChange = (value: string) => {
     !loading && setLoading(true)
@@ -45,14 +48,25 @@ export const Search = ({ data }: Props) => {
 
   const isEmpty = !result.length
 
+  const studentList = selectedStudents.length ? (
+    selectedStudents.map((s) => <StudentItem key={s.id} student={s} />)
+  ) : (
+    <p className="py-1.5 px-3 font-bold text-gray-600 bg-white">
+      まだ選択されていません
+    </p>
+  )
+
   return (
-    <div className="p-2 space-y-2">
-      <div className="relative p-2 rounded-sm bg-neutral/50">
-        <input
-          className="p-2 w-full font-rounded font-medium bg-sky-50 rounded border-2 border-gray-200 outline-none shadow-inner"
-          onChange={(e) => handleChange(e.target.value)}
-          placeholder="検索したい生徒の名前を入力"
-        />
+    <div className="space-y-2">
+      <div className="relative p-2 rounded-sm bg-neutral/75">
+        <div className="flex justify-between items-center">
+          <h1 className="p-2 bg-white">サービスのロゴ</h1>
+          <input
+            className="p-2 font-rounded font-medium bg-sky-50 rounded border-2 border-gray-200 outline-none shadow-inner"
+            onChange={(e) => handleChange(e.target.value)}
+            placeholder="生徒の名前を入力"
+          />
+        </div>
         <div className="flex absolute top-0 right-0 items-center px-4 h-full">
           {loading ? (
             <div className="text-white btn btn-sm btn-circle loading"></div>
@@ -73,7 +87,14 @@ export const Search = ({ data }: Props) => {
           )}
         </div>
       </div>
-      <div className="relative min-h-16">
+      <div className="flex flex-wrap gap-1 items-center mx-2 font-rounded md:gap-2">
+        <p className="py-2 px-3 text-sm font-bold text-white bg-kivotos">
+          選択中の生徒
+        </p>
+        {studentList}
+      </div>
+      <div className="h-0 divider"></div>
+      <div className="relative px-2 min-h-16">
         {isEmpty ? (
           <div className="flex absolute inset-0 justify-center items-center border-sky-50">
             <p className="text-sm font-medium text-neutral">
