@@ -2,11 +2,10 @@ import { useState } from "react"
 
 import { EMPTY_GROUPED_STUDENTS } from "@/consts"
 import type { GroupedStudents, Student } from "@/types"
-import { useSelectedStudents } from "@/hooks"
 import { useDebounceCallback } from "@/hooks/useDebounce"
 import { useFuse } from "@/hooks/useFuse"
 
-import { StudentItem } from "@/components/molecules/StudentItem"
+import { SelectedStudents } from "@/components/organisms/SelectedStudents"
 import { StudentList } from "@/components/molecules/StudentList"
 
 const convertStudentToGroup = (students: Student[]) => {
@@ -36,7 +35,6 @@ export const Search = ({ data }: Props) => {
   })
   const [loading, setLoading] = useState(false)
   const debounce = useDebounceCallback()
-  const { selectedStudents } = useSelectedStudents()
 
   const handleChange = (value: string) => {
     !loading && setLoading(true)
@@ -47,14 +45,6 @@ export const Search = ({ data }: Props) => {
   }
 
   const isEmpty = !result.length
-
-  const studentList = selectedStudents.length ? (
-    selectedStudents.map((s) => <StudentItem key={s.id} student={s} />)
-  ) : (
-    <p className="py-1.5 px-3 font-bold text-gray-600 bg-white">
-      まだ選択されていません
-    </p>
-  )
 
   return (
     <div className="space-y-2">
@@ -87,12 +77,7 @@ export const Search = ({ data }: Props) => {
           )}
         </div>
       </div>
-      <div className="flex flex-wrap gap-1 items-center mx-2 font-rounded md:gap-2">
-        <p className="py-2 px-3 text-sm font-bold text-white bg-kivotos">
-          選択中の生徒
-        </p>
-        {studentList}
-      </div>
+      <SelectedStudents />
       <div className="h-0 divider"></div>
       <div className="relative px-2 min-h-16">
         {isEmpty ? (
