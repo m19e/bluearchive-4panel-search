@@ -3,13 +3,10 @@ import { StudentItem } from "@/components/molecules/StudentItem"
 
 export const SelectedStudents = () => {
   const { selectedStudents } = useSelectedStudents()
-
   const studentList = selectedStudents.length ? (
     selectedStudents.map((s) => <StudentItem key={s.id} student={s} />)
   ) : (
-    <p className="py-1.5 px-3 font-bold text-gray-600 bg-white">
-      まだ選択されていません
-    </p>
+    <EmptyLabel />
   )
 
   return (
@@ -19,5 +16,13 @@ export const SelectedStudents = () => {
       </p>
       {studentList}
     </div>
+  )
+}
+
+const EmptyLabel = () => {
+  return (
+    <p className="py-1.5 px-3 font-bold text-gray-600 bg-white">
+      まだ選択されていません
+    </p>
   )
 }
