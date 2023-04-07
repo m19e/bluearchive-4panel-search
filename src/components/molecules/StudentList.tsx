@@ -1,10 +1,10 @@
 import { SCHOOLS } from "@/consts"
-import type { SchoolID, Student } from "@/types"
+import type { GroupedStudents, SchoolID, Student } from "@/types"
 
 import { StudentItem } from "@/components/molecules/StudentItem"
 
 type Props = {
-  data: { [key in SchoolID]: Student[] }
+  data: GroupedStudents
 }
 
 export const StudentList = ({ data }: Props) => {
