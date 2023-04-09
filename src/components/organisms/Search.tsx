@@ -47,7 +47,7 @@ export const Search = ({ data }: Props) => {
   const isEmpty = !result.length
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-4">
       <div className="overflow-hidden sticky top-0 z-50 pb-10 -mb-10 pointer-events-none sm:pb-11 sm:-mb-11 md:pb-12 md:-mb-12">
         <div className="relative">
           <svg
@@ -106,7 +106,7 @@ export const Search = ({ data }: Props) => {
               </filter>
             </defs>
           </svg>
-          <div className="relative pb-4 bg-white shadow-[0_1px_3px_rgba(15,23,42,0.08)] pointer-events-auto sm:pb-0">
+          <div className="relative bg-white shadow-[0_1px_3px_rgba(15,23,42,0.08)] pointer-events-auto">
             <div className="flex flex-col px-4 mx-auto max-w-screen-lg sm:flex-row sm:items-center sm:px-6 lg:px-8">
               <div className="relative flex-auto">
                 <input
