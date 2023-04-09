@@ -47,7 +47,7 @@ export const Search = ({ data }: Props) => {
   const isEmpty = !result.length
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-2 lg:space-y-4">
       <div className="overflow-hidden sticky top-0 z-50 pb-10 -mb-10 pointer-events-none sm:pb-11 sm:-mb-11 md:pb-12 md:-mb-12">
         <div className="relative">
           <svg
@@ -128,21 +128,29 @@ export const Search = ({ data }: Props) => {
           </div>
         </div>
       </div>
-      <SelectedStudents />
+      <div className="flex justify-center">
+        <div className="w-full max-w-screen-lg">
+          <SelectedStudents />
+        </div>
+      </div>
       <div className="h-0 divider"></div>
-      <div className="relative px-2 min-h-16">
-        {isEmpty ? (
-          <div className="flex absolute inset-0 justify-center items-center border-sky-50">
-            <p className="text-sm font-medium text-neutral">
-              検索にヒットする生徒がいません
-            </p>
+      <div className="flex justify-center">
+        <div className="pb-8 w-full max-w-screen-lg">
+          <div className="relative px-2 min-h-16">
+            {isEmpty ? (
+              <div className="flex absolute inset-0 justify-center items-center border-sky-50">
+                <p className="text-sm font-medium text-neutral">
+                  検索にヒットする生徒がいません
+                </p>
+              </div>
+            ) : (
+              <StudentList data={convertStudentToGroup(result)} />
+            )}
+            {loading && (
+              <div className="absolute inset-0 opacity-50 bg-neutral"></div>
+            )}
           </div>
-        ) : (
-          <StudentList data={convertStudentToGroup(result)} />
-        )}
-        {loading && (
-          <div className="absolute inset-0 opacity-50 bg-neutral"></div>
-        )}
+        </div>
       </div>
     </div>
   )
