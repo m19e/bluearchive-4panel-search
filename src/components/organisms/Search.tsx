@@ -48,33 +48,84 @@ export const Search = ({ data }: Props) => {
 
   return (
     <div className="space-y-2">
-      <div className="relative p-2 rounded-sm bg-neutral/75">
-        <div className="flex justify-between items-center">
-          <h1 className="p-2 bg-white">サービスのロゴ</h1>
-          <input
-            className="p-2 font-rounded font-medium bg-sky-50 rounded border-2 border-gray-200 outline-none shadow-inner"
-            onChange={(e) => handleChange(e.target.value)}
-            placeholder="生徒の名前を入力"
-          />
-        </div>
-        <div className="flex absolute top-0 right-0 items-center px-4 h-full">
-          {loading ? (
-            <div className="text-white btn btn-sm btn-circle loading"></div>
-          ) : (
-            <svg
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 14 16"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 text-neutral"
-            >
-              <path
-                fillRule="evenodd"
-                d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"
-              ></path>
-            </svg>
-          )}
+      <div className="overflow-hidden sticky top-0 z-50 pb-10 -mb-10 pointer-events-none sm:pb-11 sm:-mb-11 md:pb-12 md:-mb-12">
+        <div className="relative">
+          <svg
+            viewBox="0 0 1140 34"
+            fill="none"
+            className="absolute bottom-[-16px] left-1/2 ml-[-570px] w-[1140px]"
+          >
+            <g opacity=".6" filter="url(#:R5l6:-a)">
+              <path fill="url(#:R5l6:-b)" d="M6 6h1128v22H6z"></path>
+              <path fill="url(#:R5l6:-c)" d="M6 6h1128v22H6z"></path>
+            </g>
+            <defs>
+              <radialGradient
+                id=":R5l6:-c"
+                cx="0"
+                cy="0"
+                r="1"
+                gradientUnits="userSpaceOnUse"
+                gradientTransform="matrix(0 -22 1128 0 563 28)"
+              >
+                <stop offset=".273" stopColor="#fff"></stop>
+                <stop offset="1" stopColor="#fff" stopOpacity="0"></stop>
+              </radialGradient>
+              <linearGradient
+                id=":R5l6:-b"
+                x1="6"
+                y1="6"
+                x2="1134"
+                y2="6"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stopColor="#A78BFA" stopOpacity="0"></stop>
+                <stop offset=".323" stopColor="#A78BFA"></stop>
+                <stop offset=".672" stopColor="#EC4899" stopOpacity=".3"></stop>
+                <stop offset="1" stopColor="#EC4899" stopOpacity="0"></stop>
+              </linearGradient>
+              <filter
+                id=":R5l6:-a"
+                x="0"
+                y="0"
+                width="1140"
+                height="34"
+                filterUnits="userSpaceOnUse"
+                colorInterpolationFilters="sRGB"
+              >
+                <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+                <feBlend
+                  in="SourceGraphic"
+                  in2="BackgroundImageFix"
+                  result="shape"
+                ></feBlend>
+                <feGaussianBlur
+                  stdDeviation="3"
+                  result="effect1_foregroundBlur_311_43535"
+                ></feGaussianBlur>
+              </filter>
+            </defs>
+          </svg>
+          <div className="relative pb-4 bg-white shadow-[0_1px_3px_rgba(15,23,42,0.08)] pointer-events-auto sm:pb-0">
+            <div className="flex flex-col px-4 mx-auto max-w-screen-lg sm:flex-row sm:items-center sm:px-6 lg:px-8">
+              <div className="relative flex-auto">
+                <input
+                  type="search"
+                  aria-label="Search all students"
+                  placeholder="生徒の名前を検索..."
+                  onChange={(e) => handleChange(e.target.value)}
+                  className="block py-6 pr-4 pl-9 w-full text-base text-slate-900 placeholder:text-slate-400 bg-transparent rounded-lg focus:outline-none transition appearance-none [&::-webkit-search-decoration]:appearance-none [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-results-button]:appearance-none [&::-webkit-search-results-decoration]:appearance-none sm:text-[0.8125rem] sm:leading-6"
+                />
+                <svg
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                  className="absolute inset-y-0 left-0 w-5 h-full transition pointer-events-none fill-slate-500"
+                >
+                  <path d="M16.72 17.78a.75.75 0 1 0 1.06-1.06l-1.06 1.06ZM9 14.5A5.5 5.5 0 0 1 3.5 9H2a7 7 0 0 0 7 7v-1.5ZM3.5 9A5.5 5.5 0 0 1 9 3.5V2a7 7 0 0 0-7 7h1.5ZM9 3.5A5.5 5.5 0 0 1 14.5 9H16a7 7 0 0 0-7-7v1.5Zm3.89 10.45 3.83 3.83 1.06-1.06-3.83-3.83-1.06 1.06ZM14.5 9a5.48 5.48 0 0 1-1.61 3.89l1.06 1.06A6.98 6.98 0 0 0 16 9h-1.5Zm-1.61 3.89A5.48 5.48 0 0 1 9 14.5V16a6.98 6.98 0 0 0 4.95-2.05l-1.06-1.06Z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <SelectedStudents />
