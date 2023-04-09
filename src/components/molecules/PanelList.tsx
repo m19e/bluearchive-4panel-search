@@ -15,8 +15,10 @@ type Props = {
 export const PanelList = ({ data }: Props) => {
   const categories = data.map((d) => <CategoryList key={d.title} {...d} />)
 
+  // pt-[75%] sm:pt-[60%] md:pt-[50%] lg:pt-[38%]
+
   return (
-    <div className="overflow-y-scroll p-2 my-2 space-y-2 w-full max-w-md h-96 bg-sky-100 skewed-list scrollbar-hidden">
+    <div className="overflow-y-scroll p-2 pt-[18%] my-2 space-y-2 w-full max-w-md h-96 bg-transparent skewed-list scrollbar-hidden">
       {categories}
     </div>
   )
