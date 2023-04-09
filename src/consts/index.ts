@@ -1,3 +1,5 @@
+import type { SchoolID, Student } from "@/types"
+
 export const JA_PANELS_URL =
   "https://m19e.github.io/bluearchive-4panel/panels/ja.json"
 export const EN_PANELS_URL =
@@ -31,3 +33,21 @@ export const SCHOOLS = {
   others_students: { id: "others_students", ja: "不明", en: "Others Students" },
   etc: { id: "etc", ja: "その他", en: "ETC" },
 } as const
+
+export const EMPTY_GROUPED_STUDENTS: { [key in SchoolID]: Student[] } = {
+  kivotos: [],
+  prime_student_council: [],
+  abydos: [],
+  gehenna: [],
+  millennium: [],
+  trinity: [],
+  hyakkiyako: [],
+  shanhaijing: [],
+  red_winter: [],
+  valkyrie: [],
+  arius: [],
+  srt: [],
+  kronos: [],
+  others_students: [],
+  etc: [],
+}
