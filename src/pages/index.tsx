@@ -17,11 +17,33 @@ const Page: NextPage<Props> = ({ panels, students }) => {
   ]
 
   return (
-    <div className="space-y-4 min-h-screen bg-pattern">
-      <Search data={students} />
-      <div className="flex justify-center w-full">
-        <PanelList data={data} />
+    <div className="flex flex-col min-h-screen font-rounded">
+      <div className="flex-1">
+        <div className="flex overflow-x-hidden justify-center bg-pattern">
+          <div className="flex justify-end w-full max-w-screen-lg">
+            <div className="flex-1">
+              <div className="overflow-x-hidden -mr-6 ml-10 h-full bg-white border-r-4 border-l-[2rem] border-sky-600/50 -skew-x-[30deg]">
+                <div className="flex flex-col justify-center items-center h-full font-black">
+                  <div className="hidden md:block md:text-4xl lg:text-5xl">
+                    <p className="skew-x-[30deg]">
+                      <span className="text-kivotos">B</span>lue Archive
+                    </p>
+                    <p className="skew-x-[30deg]">
+                      <span className="text-kivotos">4</span>-Panel
+                    </p>
+                    <p className="skew-x-[30deg]">
+                      <span className="text-kivotos">S</span>earch
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <PanelList data={data} />
+          </div>
+        </div>
+        <Search data={students} />
       </div>
+      <div className="w-full bg-neutral/75 min-h-16"></div>
     </div>
   )
 }
