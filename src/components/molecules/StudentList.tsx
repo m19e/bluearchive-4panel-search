@@ -29,15 +29,13 @@ const School = ({ id, students }: { id: SchoolID; students: Student[] }) => {
   ))
 
   return (
-    <div className="max-w-full lg:max-w-[calc(50%-1rem)]">
+    <div className="max-w-full lg:max-w-[calc(50%-0.25rem)]">
       <h3 className="text-lg font-bold border-b-2 border-neutral">
         <span className="text-neutral">
           {id === "kivotos" ? "シャーレ" : SCHOOLS[id].ja}
         </span>
       </h3>
-      <div className="flex flex-wrap gap-0.5 mt-1 lg:gap-1 lg:mt-1">
-        {studentList}
-      </div>
+      <div className="flex flex-wrap gap-0.5 mt-1 lg:mt-">{studentList}</div>
     </div>
   )
 }
