@@ -21,7 +21,7 @@ export const SelectedStudents = () => {
 
 const EmptyLabel = () => {
   return (
-    <p className="py-1.5 px-3 font-bold text-gray-600 bg-white">
+    <p className="py-1.5 font-bold text-gray-600 bg-white">
       まだ選択されていません
     </p>
   )
