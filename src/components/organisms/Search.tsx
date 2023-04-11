@@ -47,10 +47,10 @@ export const Search = ({ data }: Props) => {
   const isEmpty = !result.length
 
   return (
-    <div className="space-y-2 lg:space-y-4">
+    <div className="space-y-0 lg:space-y-4">
       <div className="overflow-hidden sticky top-0 z-50 pb-10 -mb-10 pointer-events-none sm:pb-11 sm:-mb-11 md:pb-12 md:-mb-12">
         <div className="relative">
-          <svg
+          {/* <svg
             viewBox="0 0 1140 34"
             fill="none"
             className="absolute bottom-[-16px] left-1/2 ml-[-570px] w-[1140px]"
@@ -105,7 +105,7 @@ export const Search = ({ data }: Props) => {
                 ></feGaussianBlur>
               </filter>
             </defs>
-          </svg>
+          </svg> */}
           <div className="relative bg-white shadow-[0_1px_3px_rgba(15,23,42,0.08)] pointer-events-auto">
             <div className="flex flex-col px-4 mx-auto max-w-screen-lg sm:flex-row sm:items-center sm:px-6 lg:px-8">
               <div className="relative flex-auto">
@@ -129,26 +129,27 @@ export const Search = ({ data }: Props) => {
         </div>
       </div>
       <div className="flex justify-center">
-        <div className="w-full max-w-screen-lg">
-          <SelectedStudents />
-        </div>
-      </div>
-      <div className="h-0 divider"></div>
-      <div className="flex justify-center">
-        <div className="pb-8 w-full max-w-screen-lg">
-          <div className="relative px-2 min-h-16">
-            {isEmpty ? (
-              <div className="flex absolute inset-0 justify-center items-center border-sky-50">
-                <p className="text-sm font-medium text-neutral">
-                  検索にヒットする生徒がいません
-                </p>
+        <div className="w-full max-w-screen-lg bg-sky-700/25 rounded-sm shadow-inner">
+          <div className="p-2 lg:p-4">
+            <SelectedStudents />
+          </div>
+          <div className="p-2 bg-sky-700/25 rounded-sm shadow-inner lg:p-4 min-h-16">
+            <div className="p-0.5 bg-white rounded-sm">
+              <div className="relative p-2.5 m-0.5 rounded-sm border border-slate-400">
+                {isEmpty ? (
+                  <div className="flex absolute inset-0 justify-center items-center border-sky-50">
+                    <p className="text-sm font-medium text-neutral">
+                      検索にヒットする生徒がいません
+                    </p>
+                  </div>
+                ) : (
+                  <StudentList data={convertStudentToGroup(result)} />
+                )}
+                {loading && (
+                  <div className="absolute inset-0 opacity-50 bg-neutral"></div>
+                )}
               </div>
-            ) : (
-              <StudentList data={convertStudentToGroup(result)} />
-            )}
-            {loading && (
-              <div className="absolute inset-0 opacity-50 bg-neutral"></div>
-            )}
+            </div>
           </div>
         </div>
       </div>

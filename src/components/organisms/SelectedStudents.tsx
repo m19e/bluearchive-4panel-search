@@ -10,7 +10,7 @@ export const SelectedStudents = () => {
   )
 
   return (
-    <div className="flex flex-wrap gap-1 items-center mx-2 font-rounded md:gap-2">
+    <div className="flex flex-wrap gap-0.5 items-center">
       <p className="py-2 px-3 text-sm font-bold text-white bg-kivotos">
         選択中の生徒
       </p>
