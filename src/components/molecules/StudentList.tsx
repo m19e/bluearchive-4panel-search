@@ -35,7 +35,7 @@ const School = ({ id, students }: { id: SchoolID; students: Student[] }) => {
           {id === "kivotos" ? "シャーレ" : SCHOOLS[id].ja}
         </span>
       </h3>
-      <div className="flex flex-wrap gap-0.5 mt-1 lg:mt-">{studentList}</div>
+      <div className="flex flex-wrap gap-0.5 mt-1">{studentList}</div>
     </div>
   )
 }
