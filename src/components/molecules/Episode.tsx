@@ -12,7 +12,7 @@ type Props = {
 
 export const Episode = ({ id }: Props) => {
   const { is3, digit2, digit3 } = getEpisodeFromID(id)
-  const triangleLeft = is3 ? "-left-7" : "-left-8"
+  const triangleLeft = is3 ? "-left-8 sm:-left-7" : "-left-9 sm:-left-8"
 
   return (
     <>
@@ -21,11 +21,15 @@ export const Episode = ({ id }: Props) => {
       </div>
       {is3 ? (
         <div className="absolute bottom-0 left-[2px] z-10">
-          <p className="font-medium text-center text-2xs">{digit3}</p>
+          <p className="font-medium leading-3 text-center sm:leading-4 text-2xs">
+            {digit3}
+          </p>
         </div>
       ) : (
         <div className="absolute bottom-0 left-1 z-10">
-          <p className="text-xs font-medium text-center">{digit2}</p>
+          <p className="font-medium leading-3 text-center sm:text-xs sm:leading-4 text-2xs">
+            {digit2}
+          </p>
         </div>
       )}
     </>

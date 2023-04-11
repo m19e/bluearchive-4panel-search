@@ -16,7 +16,7 @@ export const PanelList = ({ data }: Props) => {
   const categories = data.map((d) => <CategoryList key={d.title} {...d} />)
 
   return (
-    <div className="overflow-y-scroll p-2 pt-[180px] space-y-2 w-full max-w-md h-96 bg-transparent skewed-list scrollbar-hidden">
+    <div className="overflow-y-scroll p-2 pt-[180px] pb-[100px] space-y-2 w-full max-w-md h-96 bg-transparent skewed-list scrollbar-hidden">
       {categories}
     </div>
   )
@@ -50,20 +50,20 @@ const Category = ({ title }: { title: string }) => {
 
 const PanelItem = ({ id, title, students, href, deleted }: PanelData) => {
   return (
-    <div className="flex overflow-hidden relative gap-1 items-center pt-2 pr-8 pb-3 pl-6 font-rounded bg-white rounded-sm border-l-4 border-sky-300 shadow skewed-item">
+    <div className="flex overflow-hidden relative gap-1 items-center py-2 pr-2 pl-5 font-rounded text-sm bg-white rounded-sm border-l-4 border-sky-300 shadow sm:pr-8 sm:pl-6 sm:text-base skewed-item">
       <Episode id={id} />
       <p className="font-medium">{title}</p>
       <div className="flex flex-1 justify-end">
         <a
-          className="flex justify-center py-2 w-24 bg-sky-300 rounded-sm"
+          className="flex justify-center py-1 w-12 bg-sky-300 rounded-sm sm:py-2 sm:w-24"
           href={href}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <p className="font-medium">入場</p>
+          <p className="font-medium leading-3 sm:text-sm text-2xs">入場</p>
         </a>
       </div>
-      <div className="absolute top-0 -right-8 z-0 skew-x-[30deg]">
+      <div className="absolute top-0 -right-14 z-0 skew-x-[30deg] sm:-right-8">
         <div className="bg-gray-100 rotate-180 triangle"></div>
       </div>
     </div>
