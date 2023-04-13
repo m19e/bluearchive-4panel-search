@@ -1,12 +1,7 @@
-import type { PanelData } from "@/types"
+import type { CategoryData, PanelData } from "@/types"
 
 import { Episode } from "@/components/molecules/Episode"
 import { Marks } from "@/components/atoms/Marks"
-
-type CategoryData = {
-  title: string
-  panels: PanelData[]
-}
 
 type Props = {
   data: CategoryData[]

@@ -20,4 +20,9 @@ export type StudentData = Record<string, Student>
 
 export type PanelData = Omit<Panel, "students"> & { students: Student[] }
 
+export type CategoryData = {
+  title: string
+  panels: PanelData[]
+}
+
 export type GroupedStudents = typeof EMPTY_GROUPED_STUDENTS
