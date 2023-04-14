@@ -1,10 +1,10 @@
 import ky from "ky"
 import {
-  JA_PANELS_URL,
-  EN_PANELS_URL,
   AOHARU_PANELS_URL,
-  PLAYABLE_URL,
+  EN_PANELS_URL,
+  JA_PANELS_URL,
   NPC_URL,
+  PLAYABLE_URL,
 } from "@/consts"
 import type { Panel, PanelData, StudentData } from "@/types"
 
