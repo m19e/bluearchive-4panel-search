@@ -40,7 +40,7 @@ export const PanelContainer = () => {
               </a>
               <span className="text-slate-600/50">/</span>
               <div className="flex gap-2 items-center">
-                <svg
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   className="w-5 h-5 fill-slate-500"
@@ -51,7 +51,7 @@ export const PanelContainer = () => {
                     d="M13 8a.75.75 0 01.671.415l4.25 8.5a.75.75 0 11-1.342.67L15.787 16h-5.573l-.793 1.585a.75.75 0 11-1.342-.67l4.25-8.5A.75.75 0 0113 8zm2.037 6.5L13 10.427 10.964 14.5h4.073z"
                     clipRule="evenodd"
                   />
-                </svg>
+                </svg> */}
                 <div className="flex gap-1 text-xs font-black leading-6">
                   <span className="text-slate-600">日本語</span>
                   <span className="text-slate-600/50">|</span>
