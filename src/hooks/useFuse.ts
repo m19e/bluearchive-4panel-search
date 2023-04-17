@@ -38,3 +38,26 @@ export const useFuse = <T>({ data, options }: Props<T>) => {
 
   return { result, search: setTerm, term, reset }
 }
+
+export const useFuseLogical = <T>({
+  data,
+  options,
+  query: { $or = [], $and = [] },
+}: Props<T> & {
+  query: { $or?: Fuse.Expression[]; $and?: Fuse.Expression[] }
+}) => {
+  const fuse = useMemo(() => new Fuse(data, options), [data, options])
+
+  const OR = useMemo(() => fuse.search({ $or }).map((r) => r.item), [$or, fuse])
+  const AND = useMemo(
+    () => fuse.search({ $and }).map((r) => r.item),
+    [$and, fuse]
+  )
+
+  return {
+    result: {
+      OR,
+      AND,
+    },
+  }
+}
