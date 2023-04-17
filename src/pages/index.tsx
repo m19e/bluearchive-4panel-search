@@ -8,6 +8,7 @@ import { allPanelsAtom } from "@/stores"
 
 import { PanelContainer } from "@/components/organisms/PanelContainer"
 import { Search } from "@/components/organisms/Search"
+import { Footer } from "@/components/atoms/Footer"
 
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>
 
@@ -20,7 +21,7 @@ const Page: NextPage<Props> = ({ panels, students }) => {
             <PanelContainer />
             <Search data={students} />
           </div>
-          <footer className="w-full min-h-16"></footer>
+          <Footer />
         </div>
       </HydrateAtoms>
     </Provider>
