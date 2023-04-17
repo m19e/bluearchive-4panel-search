@@ -84,8 +84,9 @@
 
 a,
 p,
+h3,
 span,
-h3 {
+input {
   transform: rotate(0.05deg);
 }
 
