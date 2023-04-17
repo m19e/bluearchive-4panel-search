@@ -24,12 +24,12 @@ const Page: NextPage<Props> = ({ panels, students }) => {
   return (
     <Provider>
       <HydrateAtoms initialValue={panels}>
-        <div className="flex flex-col min-h-screen font-rounded">
-          <div className="flex-1 bg-triangle">
+        <div className="flex flex-col min-h-screen font-rounded bg-triangle">
+          <div className="flex-1">
             <PanelContainer />
             <Search data={students} />
-            <footer className="w-full min-h-16"></footer>
           </div>
+          <footer className="w-full min-h-16"></footer>
         </div>
       </HydrateAtoms>
     </Provider>
