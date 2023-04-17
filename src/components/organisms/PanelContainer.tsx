@@ -1,12 +1,12 @@
-import type { CategoryData } from "@/types"
+import { usePanels } from "@/hooks"
 
 import { PanelList } from "@/components//molecules/PanelList"
 
-type Props = {
-  data: CategoryData[]
-}
+export const PanelContainer = () => {
+  const { data, result } = usePanels()
+  const noResult = result.OR.length === 0
+  const resultData = [{ title: "検索結果", panels: result.OR }]
 
-export const PanelContainer = ({ data }: Props) => {
   return (
     <div className="flex overflow-x-hidden justify-center">
       <div className="flex relative justify-end w-full max-w-screen-lg">
@@ -56,7 +56,7 @@ export const PanelContainer = ({ data }: Props) => {
             </div>
           </div>
         </div>
-        <PanelList data={data} />
+        <PanelList data={noResult ? data : resultData} />
       </div>
     </div>
   )
