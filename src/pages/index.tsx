@@ -1,29 +1,38 @@
+import type { FC } from "react"
 import type { InferGetServerSidePropsType, NextPage } from "next"
+import { Provider } from "jotai"
+import { useHydrateAtoms } from "jotai/utils"
 
 import { EMPTY_GROUPED_STUDENTS } from "@/consts"
 import type { PanelData, StudentData } from "@/types"
 import { getAllPanels } from "@/utils"
+import { allPanelsAtom } from "@/stores"
 
 import { PanelContainer } from "@/components/organisms/PanelContainer"
 import { Search } from "@/components/organisms/Search"
 
+const HydrateAtoms: FC<{
+  initialValue: { ja: PanelData[]; en: PanelData[]; aoharu: PanelData[] }
+}> = ({ initialValue, children }) => {
+  useHydrateAtoms([[allPanelsAtom, initialValue] as const])
+  return <>{children}</>
+}
+
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>
 
 const Page: NextPage<Props> = ({ panels, students }) => {
-  const data = [
-    { title: "ぶるーあーかいぶっ！", panels: panels.ja.reverse() },
-    { title: "あおはるレコード", panels: panels.aoharu.reverse() },
-    { title: "Official 4-Panel Manga", panels: panels.en.reverse() },
-  ]
-
   return (
-    <div className="flex flex-col min-h-screen font-rounded">
-      <div className="flex-1 bg-triangle">
-        <PanelContainer data={data} />
-        <Search data={students} />
-        <footer className="w-full min-h-16"></footer>
-      </div>
-    </div>
+    <Provider>
+      <HydrateAtoms initialValue={panels}>
+        <div className="flex flex-col min-h-screen font-rounded">
+          <div className="flex-1 bg-triangle">
+            <PanelContainer />
+            <Search data={students} />
+            <footer className="w-full min-h-16"></footer>
+          </div>
+        </div>
+      </HydrateAtoms>
+    </Provider>
   )
 }
 
