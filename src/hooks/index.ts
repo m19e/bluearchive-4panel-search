@@ -1,7 +1,13 @@
-import { useAtom } from "jotai"
+import { useMemo } from "react"
+import { useAtom, useAtomValue } from "jotai"
 
 import type { Student } from "@/types"
-import { groupedStudentsAtom, selectedStudentsAtom } from "@/stores"
+import {
+  allPanelsAtom,
+  groupedStudentsAtom,
+  selectedStudentsAtom,
+} from "@/stores"
+import { useFuseLogical } from "./useFuse"
 
 export const useGroupedStudents = () => useAtom(groupedStudentsAtom)
 export const useSelectedStudents = () => {
@@ -17,4 +23,37 @@ export const useSelectedStudents = () => {
   }
 
   return { selectedStudents, update }
+}
+
+export const usePanels = () => {
+  const allPanels = useAtomValue(allPanelsAtom)
+  const selectedStudents = useAtomValue(selectedStudentsAtom)
+  const selectedQuery = useMemo(
+    () =>
+      selectedStudents.map((s) => ({
+        $path: ["students", "id"],
+        $val: s.id,
+      })),
+    [selectedStudents]
+  )
+  const { result } = useFuseLogical({
+    data: Object.values(allPanels).flat(),
+    options: {
+      threshold: 0,
+      keys: [["students", "id"]],
+    },
+    query: {
+      $or: selectedQuery,
+    },
+  })
+
+  const { ja, en, aoharu } = allPanels
+
+  const data = [
+    { title: "ぶるーあーかいぶっ！", panels: ja.reverse() },
+    { title: "あおはるレコード", panels: aoharu.reverse() },
+    { title: "Official 4-Panel Manga", panels: en.reverse() },
+  ]
+
+  return { data, result }
 }

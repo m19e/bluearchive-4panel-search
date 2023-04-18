@@ -11,7 +11,7 @@ export const PanelList = ({ data }: Props) => {
   const categories = data.map((d) => <CategoryList key={d.title} {...d} />)
 
   return (
-    <div className="overflow-y-scroll p-2 pt-[180px] pb-[100px] space-y-2 w-full max-w-md h-96 bg-transparent skewed-list scrollbar-hidden">
+    <div className="overflow-y-scroll p-2 pt-[120px] pb-[100px] space-y-1 w-full max-w-md h-64 bg-transparent sm:pt-[180px] sm:space-y-2 sm:h-96 skewed-list scrollbar-hidden">
       {categories}
     </div>
   )
