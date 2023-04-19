@@ -137,7 +137,7 @@ export const Search = ({ data }: Props) => {
             <div className="p-0.5 bg-white rounded-sm">
               <div className="relative p-2.5 m-0.5 rounded-sm border border-slate-400">
                 {isEmpty ? (
-                  <div className="flex absolute inset-0 justify-center items-center border-sky-50">
+                  <div className="flex justify-center items-center p-8 border-sky-50">
                     <p className="text-sm font-medium text-neutral">
                       検索にヒットする生徒がいません
                     </p>
