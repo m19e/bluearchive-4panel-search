@@ -1,2 +1,2 @@
-const en = { TEXT: "EN" }
+const en = { ENTER_PANEL: "Enter" }
 export default en

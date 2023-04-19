@@ -1,4 +1,5 @@
 import type { CategoryData, PanelData } from "@/types"
+import { useLocale } from "@/hooks/useLocale"
 
 import { Episode } from "@/components/molecules/Episode"
 import { Marks } from "@/components/atoms/Marks"
@@ -44,6 +45,8 @@ const Category = ({ title }: { title: string }) => {
 }
 
 const PanelItem = ({ id, title, students, href, deleted }: PanelData) => {
+  const { t } = useLocale()
+
   return (
     <div className="flex overflow-hidden relative gap-1 items-center py-2 pr-2 pl-5 font-rounded text-sm bg-white rounded-sm border-l-4 border-sky-300 shadow sm:pr-8 sm:pl-6 sm:text-base skewed-item">
       <Episode id={id} />
@@ -55,7 +58,9 @@ const PanelItem = ({ id, title, students, href, deleted }: PanelData) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <p className="font-medium leading-3 sm:text-sm text-2xs">入場</p>
+          <p className="font-medium leading-3 sm:text-sm text-2xs">
+            {t.ENTER_PANEL}
+          </p>
         </a>
       </div>
       <div className="absolute top-0 -right-14 z-0 skew-x-[30deg] sm:-right-8">
