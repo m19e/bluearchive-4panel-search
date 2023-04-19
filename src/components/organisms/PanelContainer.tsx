@@ -43,7 +43,7 @@ export const PanelContainer = () => {
                 <div className="flex gap-1 text-xs font-black leading-6">
                   <span className="text-slate-600">日本語</span>
                   <span className="text-slate-600/50">|</span>
-                  <a className="text-sky-600 link">English</a>
+                  <a className="text-sky-600 hover:link">English</a>
                 </div>
               </div>
             </div>
