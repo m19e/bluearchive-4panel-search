@@ -6,9 +6,7 @@ import type { PanelData, StudentData } from "@/types"
 import { getAllPanels, HydrateAtoms } from "@/utils"
 import { allPanelsAtom, langAtom } from "@/stores"
 
-import { PanelContainer } from "@/components/organisms/PanelContainer"
-import { Search } from "@/components/organisms/Search"
-import { Footer } from "@/components/atoms/Footer"
+import { TopPage } from "@/components/templates/TopPage"
 
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>
 
@@ -21,13 +19,7 @@ const Page: NextPage<Props> = ({ panels, students }) => {
           [langAtom, "ja"],
         ]}
       >
-        <div className="flex flex-col min-h-screen font-rounded bg-triangle">
-          <div className="flex-1">
-            <PanelContainer />
-            <Search data={students} />
-          </div>
-          <Footer />
-        </div>
+        <TopPage students={students} />
       </HydrateAtoms>
     </Provider>
   )

@@ -11,7 +11,6 @@ import {
 import { useFuseLogical } from "./useFuse"
 
 export const useLang = () => useAtomValue(langAtom)
-
 export const useGroupedStudents = () => useAtom(groupedStudentsAtom)
 export const useSelectedStudents = () => {
   const [selectedStudents, setSelected] = useAtom(selectedStudentsAtom)
