@@ -9,6 +9,7 @@ import {
   selectedStudentsAtom,
 } from "@/stores"
 import { useFuseLogical } from "./useFuse"
+import { useLocale } from "./useLocale"
 
 export const useLang = () => useAtomValue(langAtom)
 export const useGroupedStudents = () => useAtom(groupedStudentsAtom)
@@ -28,6 +29,7 @@ export const useSelectedStudents = () => {
 }
 
 export const usePanels = () => {
+  const { locale } = useLocale()
   const allPanels = useAtomValue(allPanelsAtom)
   const selectedStudents = useAtomValue(selectedStudentsAtom)
   const selectedQuery = useMemo(
@@ -51,11 +53,18 @@ export const usePanels = () => {
 
   const { ja, en, aoharu } = allPanels
 
-  const data = [
-    { title: "ぶるーあーかいぶっ！", panels: [...ja].reverse() },
-    { title: "あおはるレコード", panels: [...aoharu].reverse() },
-    { title: "Official 4-Panel Manga", panels: [...en].reverse() },
-  ]
+  const data =
+    locale === "ja"
+      ? [
+          { title: "ぶるーあーかいぶっ！", panels: [...ja].reverse() },
+          { title: "あおはるレコード", panels: [...aoharu].reverse() },
+          { title: "Official 4-Panel Manga", panels: [...en].reverse() },
+        ]
+      : [
+          { title: "Official 4-Panel Manga", panels: [...en].reverse() },
+          { title: "ぶるーあーかいぶっ！", panels: [...ja].reverse() },
+          { title: "あおはるレコード", panels: [...aoharu].reverse() },
+        ]
 
   return { data, result }
 }
