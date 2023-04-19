@@ -1,6 +1,7 @@
 import { usePanels } from "@/hooks"
 
-import { PanelList } from "@/components//molecules/PanelList"
+import { LangNav } from "@/components/molecules/LangNav"
+import { PanelList } from "@/components/molecules/PanelList"
 
 export const PanelContainer = () => {
   const { data, result } = usePanels()
@@ -24,7 +25,7 @@ export const PanelContainer = () => {
               </p>
             </div>
             <div className="flex gap-3 items-center">
-              <a
+              {/* <a
                 className="flex gap-3 items-center py-1 px-1.5 -my-1 -mx-1.5 text-[0.8125rem] font-extrabold leading-6 text-slate-900 rounded-lg"
                 href=""
               >
@@ -38,13 +39,9 @@ export const PanelContainer = () => {
 
                 <span className="sr-only sm:not-sr-only">Share on Twitter</span>
               </a>
-              <span className="text-slate-600/50">/</span>
+              <span className="text-slate-600/50">/</span> */}
               <div className="flex gap-2 items-center">
-                <div className="flex gap-1 text-xs font-black leading-6">
-                  <span className="text-slate-600">日本語</span>
-                  <span className="text-slate-600/50">|</span>
-                  <a className="text-sky-600 hover:link">English</a>
-                </div>
+                <LangNav />
               </div>
             </div>
           </header>
