@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import { usePanels } from "@/hooks"
 
 import { LangNav } from "@/components/molecules/LangNav"
@@ -13,17 +15,19 @@ export const PanelContainer = () => {
       <div className="flex relative justify-end w-full max-w-screen-lg">
         <div className="flex absolute top-0 z-10 px-4 w-full md:justify-end">
           <header className="flex justify-between items-center px-4 w-full h-8 bg-sky-50 rounded-b-md shadow-md md:w-auto">
-            <div className="flex gap-1 text-lg font-black sm:text-xl md:hidden">
-              <p>
-                <span className="text-kivotos">B</span>lue Archive
-              </p>
-              <p>
-                <span className="text-kivotos">4</span>-Panel
-              </p>
-              <p>
-                <span className="text-kivotos">S</span>earch
-              </p>
-            </div>
+            <Link href="/" locale="ja">
+              <a className="flex gap-1 text-lg font-black cursor-pointer sm:text-xl md:hidden">
+                <p>
+                  <span className="text-kivotos">B</span>lue Archive
+                </p>
+                <p>
+                  <span className="text-kivotos">4</span>-Panel
+                </p>
+                <p>
+                  <span className="text-kivotos">S</span>earch
+                </p>
+              </a>
+            </Link>
             <div className="flex gap-3 items-center">
               {/* <a
                 className="flex gap-3 items-center py-1 px-1.5 -my-1 -mx-1.5 text-[0.8125rem] font-extrabold leading-6 text-slate-900 rounded-lg"
@@ -49,17 +53,19 @@ export const PanelContainer = () => {
         <div className="flex-1">
           <div className="overflow-x-hidden -mr-6 ml-10 h-full bg-sky-50 border-r-4 border-l-[2rem] border-sky-600/50 -skew-x-[30deg]">
             <div className="flex flex-col justify-center items-center h-full font-black">
-              <div className="hidden md:block md:text-4xl lg:text-5xl">
-                <p className="skew-x-[30deg]">
-                  <span className="text-kivotos">B</span>lue Archive
-                </p>
-                <p className="skew-x-[30deg]">
-                  <span className="text-kivotos">4</span>-Panel
-                </p>
-                <p className="skew-x-[30deg]">
-                  <span className="text-kivotos">S</span>earch
-                </p>
-              </div>
+              <Link href="/" locale="ja">
+                <a className="hidden cursor-pointer md:block md:text-4xl lg:text-5xl">
+                  <p className="skew-x-[30deg]">
+                    <span className="text-kivotos">B</span>lue Archive
+                  </p>
+                  <p className="skew-x-[30deg]">
+                    <span className="text-kivotos">4</span>-Panel
+                  </p>
+                  <p className="skew-x-[30deg]">
+                    <span className="text-kivotos">S</span>earch
+                  </p>
+                </a>
+              </Link>
             </div>
           </div>
         </div>
