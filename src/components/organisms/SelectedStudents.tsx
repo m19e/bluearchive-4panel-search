@@ -11,7 +11,7 @@ export const SelectedStudents = () => {
 
   return (
     <div className="flex flex-wrap gap-0.5 items-center">
-      <p className="py-2 px-3 text-sm font-bold text-white bg-kivotos">
+      <p className="py-2 px-3 text-sm font-bold text-white bg-kivotos rounded">
         選択中の生徒
       </p>
       {studentList}
@@ -21,7 +21,7 @@ export const SelectedStudents = () => {
 
 const EmptyLabel = () => {
   return (
-    <p className="py-1.5 font-bold text-gray-600 bg-white">
+    <p className="p-1.5 font-bold text-gray-600 bg-white rounded-sm">
       まだ選択されていません
     </p>
   )
