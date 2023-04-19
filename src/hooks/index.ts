@@ -52,9 +52,9 @@ export const usePanels = () => {
   const { ja, en, aoharu } = allPanels
 
   const data = [
-    { title: "ぶるーあーかいぶっ！", panels: ja.reverse() },
-    { title: "あおはるレコード", panels: aoharu.reverse() },
-    { title: "Official 4-Panel Manga", panels: en.reverse() },
+    { title: "ぶるーあーかいぶっ！", panels: [...ja].reverse() },
+    { title: "あおはるレコード", panels: [...aoharu].reverse() },
+    { title: "Official 4-Panel Manga", panels: [...en].reverse() },
   ]
 
   return { data, result }
