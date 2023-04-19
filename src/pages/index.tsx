@@ -4,7 +4,7 @@ import { Provider } from "jotai"
 import { EMPTY_GROUPED_STUDENTS } from "@/consts"
 import type { PanelData, StudentData } from "@/types"
 import { getAllPanels, HydrateAtoms } from "@/utils"
-import { allPanelsAtom } from "@/stores"
+import { allPanelsAtom, langAtom } from "@/stores"
 
 import { PanelContainer } from "@/components/organisms/PanelContainer"
 import { Search } from "@/components/organisms/Search"
@@ -15,7 +15,12 @@ type Props = InferGetServerSidePropsType<typeof getServerSideProps>
 const Page: NextPage<Props> = ({ panels, students }) => {
   return (
     <Provider>
-      <HydrateAtoms initialValues={[[allPanelsAtom, panels]]}>
+      <HydrateAtoms
+        initialValues={[
+          [allPanelsAtom, panels],
+          [langAtom, "ja"],
+        ]}
+      >
         <div className="flex flex-col min-h-screen font-rounded bg-triangle">
           <div className="flex-1">
             <PanelContainer />
