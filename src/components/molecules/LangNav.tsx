@@ -7,7 +7,7 @@ export const LangNav = () => {
 
   return (
     <div className="flex gap-1 text-xs font-black leading-6">
-      {locale === "ja" ? <Ja /> : <En />}
+      {langs[locale]}
     </div>
   )
 }
@@ -34,4 +34,9 @@ const En = () => {
       <span className="text-slate-600">English</span>
     </>
   )
+}
+
+const langs = {
+  ja: <Ja />,
+  en: <En />,
 }
