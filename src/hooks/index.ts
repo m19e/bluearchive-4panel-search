@@ -5,6 +5,7 @@ import type { Student } from "@/types"
 import {
   allPanelsAtom,
   groupedStudentsAtom,
+  selectedPanelAtom,
   selectedStudentsAtom,
 } from "@/stores"
 import { useFuseLogical } from "./useFuse"
@@ -66,3 +67,5 @@ export const usePanels = () => {
 
   return { data, result }
 }
+
+export const useSelectedPanel = () => useAtom(selectedPanelAtom)

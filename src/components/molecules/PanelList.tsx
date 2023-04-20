@@ -1,6 +1,7 @@
 import type { CategoryData, PanelData } from "@/types"
-import { useLocale } from "@/hooks/useLocale"
+import { useSelectedPanel } from "@/hooks"
 
+import { ModalButton } from "@/components/organisms/Modal/Button"
 import { Episode } from "@/components/molecules/Episode"
 import { Marks } from "@/components/atoms/Marks"
 
@@ -19,7 +20,9 @@ export const PanelList = ({ data }: Props) => {
 }
 
 const CategoryList = ({ title, panels }: CategoryData) => {
-  const items = panels.map((panel) => <PanelItem key={panel.id} {...panel} />)
+  const items = panels.map((panel) => (
+    <PanelItem key={panel.id} panel={panel} />
+  ))
 
   return (
     <>
@@ -44,24 +47,16 @@ const Category = ({ title }: { title: string }) => {
   )
 }
 
-const PanelItem = ({ id, title, students, href, deleted }: PanelData) => {
-  const { t } = useLocale()
+const PanelItem = ({ panel }: { panel: PanelData }) => {
+  const { id, title } = panel
+  const [, selectPanel] = useSelectedPanel()
 
   return (
     <div className="flex overflow-hidden relative gap-1 items-center py-2 pr-2 pl-5 font-rounded text-sm bg-white rounded-sm border-l-4 border-sky-300 shadow sm:pr-8 sm:pl-6 sm:text-base skewed-item">
       <Episode id={id} />
       <p className="font-medium">{title}</p>
       <div className="flex flex-1 justify-end">
-        <a
-          className="flex justify-center py-1 w-12 bg-sky-300 rounded-sm sm:py-2 sm:w-24"
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <p className="font-medium leading-3 sm:text-sm text-2xs">
-            {t.ENTER_PANEL}
-          </p>
-        </a>
+        <ModalButton onClick={() => selectPanel(panel)} />
       </div>
       <div className="absolute top-0 -right-14 z-0 skew-x-[30deg] sm:-right-8">
         <div className="bg-gray-100 rotate-180 triangle"></div>
