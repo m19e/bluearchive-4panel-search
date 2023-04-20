@@ -1,7 +1,7 @@
 import type { InferGetServerSidePropsType, NextPage } from "next"
 
 import { getAllData, HydrateAtoms } from "@/utils"
-import { allPanelsAtom, langAtom } from "@/stores"
+import { allPanelsAtom } from "@/stores"
 
 import { TopPage } from "@/components/templates/TopPage"
 
@@ -9,12 +9,7 @@ type Props = InferGetServerSidePropsType<typeof getServerSideProps>
 
 const Page: NextPage<Props> = ({ panels, students }) => {
   return (
-    <HydrateAtoms
-      initialValues={[
-        [allPanelsAtom, panels],
-        [langAtom, "en"],
-      ]}
-    >
+    <HydrateAtoms initialValues={[[allPanelsAtom, panels]]}>
       <TopPage students={students} />
     </HydrateAtoms>
   )

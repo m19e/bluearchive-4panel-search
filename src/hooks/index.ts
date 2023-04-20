@@ -5,13 +5,11 @@ import type { Student } from "@/types"
 import {
   allPanelsAtom,
   groupedStudentsAtom,
-  langAtom,
   selectedStudentsAtom,
 } from "@/stores"
 import { useFuseLogical } from "./useFuse"
 import { useLocale } from "./useLocale"
 
-export const useLang = () => useAtomValue(langAtom)
 export const useGroupedStudents = () => useAtom(groupedStudentsAtom)
 export const useSelectedStudents = () => {
   const [selectedStudents, setSelected] = useAtom(selectedStudentsAtom)

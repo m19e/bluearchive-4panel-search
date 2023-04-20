@@ -1,10 +1,9 @@
 import { atom } from "jotai"
 
-import type { GroupedStudents, Lang, PanelData, Student } from "@/types"
+import type { GroupedStudents, PanelData, Student } from "@/types"
 
 // Atoms
 
-export const langAtom = atom<Lang>("ja")
 export const allPanelsAtom = atom<{
   ja: PanelData[]
   en: PanelData[]
