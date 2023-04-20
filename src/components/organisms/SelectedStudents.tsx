@@ -3,9 +3,12 @@ import { useLocale } from "@/hooks/useLocale"
 import { StudentItem } from "@/components/molecules/StudentItem"
 
 export const SelectedStudents = () => {
+  const { locale } = useLocale()
   const { selectedStudents } = useSelectedStudents()
   const studentList = selectedStudents.length ? (
-    selectedStudents.map((s) => <StudentItem key={s.id} student={s} />)
+    selectedStudents.map((s) => (
+      <StudentItem key={s.id} student={s} lang={locale} />
+    ))
   ) : (
     <EmptyLabel />
   )

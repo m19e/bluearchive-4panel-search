@@ -1,7 +1,12 @@
-import type { Student } from "@/types"
+import type { Lang, Student } from "@/types"
 import { useSelectedStudents } from "@/hooks"
 
-export const StudentItem = ({ student }: { student: Student }) => {
+type Props = {
+  student: Student
+  lang: Lang
+}
+
+export const StudentItem = ({ student, lang }: Props) => {
   const { update } = useSelectedStudents()
 
   const borderR = `border-r-${student.school}`
@@ -12,7 +17,7 @@ export const StudentItem = ({ student }: { student: Student }) => {
     >
       <div className="relative py-1 px-2 bg-white">
         <p className={`font-bold text-sm text-${student.school}`}>
-          {student.ja}
+          {student[lang]}
         </p>
         <div
           className={
