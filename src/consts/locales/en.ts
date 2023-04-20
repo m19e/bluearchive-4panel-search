@@ -4,5 +4,7 @@ const en = {
   SELECTED_EMPTY: "Unselected",
   PLACEHOLDER: "Search all students...",
   NO_MATCH: "No students match",
+  EPISODE_INFO: "Episode Info",
+  STUDENTS: "Students",
 }
 export default en
