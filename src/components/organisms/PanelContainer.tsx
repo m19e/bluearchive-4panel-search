@@ -6,6 +6,10 @@ import { useLocale } from "@/hooks/useLocale"
 import { LangNav } from "@/components/molecules/LangNav"
 import { PanelList } from "@/components/molecules/PanelList"
 
+const SHARE_URL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`#ブルアカ4コマ検索
+#BlueArchive4PanelSearch
+${process.env.NEXT_PUBLIC_SITE_ROOT_URL}`)}`
+
 export const PanelContainer = () => {
   const { t } = useLocale()
   const { data, result } = usePanels()
@@ -31,7 +35,9 @@ export const PanelContainer = () => {
               <span className="text-slate-600/50">/</span>
               <a
                 className="flex gap-2 items-center py-1 px-1.5 -my-1 -mx-1.5 text-[0.8125rem] font-extrabold leading-6 text-slate-900 rounded-lg"
-                href=""
+                href={SHARE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <svg
                   viewBox="0 0 20 20"
