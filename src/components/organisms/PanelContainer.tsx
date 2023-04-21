@@ -16,9 +16,9 @@ export const PanelContainer = () => {
     <div className="flex overflow-x-hidden justify-center">
       <div className="flex relative justify-end w-full max-w-screen-lg">
         <div className="flex absolute top-0 z-10 w-full md:justify-end md:px-4">
-          <header className="flex justify-between items-center px-2 w-full h-8 bg-sky-50 shadow-md md:px-4 md:w-auto md:rounded-b-md">
+          <header className="flex flex-col px-2 w-full bg-sky-50 shadow-md sm:flex-row sm:justify-between sm:items-center md:px-4 md:w-auto md:rounded-b-md min-h-8">
             <Link href="/" locale="ja">
-              <a className="flex text-sm font-black cursor-pointer sm:text-base md:hidden">
+              <a className="flex font-black cursor-pointer sm:text-xl md:hidden">
                 <p className="whitespace-pre-line">
                   <span className="text-kivotos">B</span>lue Archive
                   <span className="text-kivotos"> 4</span>-Panel
@@ -26,7 +26,7 @@ export const PanelContainer = () => {
                 </p>
               </a>
             </Link>
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 justify-end items-center sm:justify-start">
               <LangNav />
               <span className="text-slate-600/50">/</span>
               <a
