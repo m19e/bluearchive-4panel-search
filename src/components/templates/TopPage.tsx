@@ -77,7 +77,11 @@ const Header = ({
 }: HeaderProps) => (
   <Head>
     <title>{title}</title>
-    <link rel="icon" href="/favicon.ico" />
+    <link
+      rel="icon alternate"
+      type="image/png"
+      href="https://cdn.jsdelivr.net/gh/twitter/twemoji@v14.0.2/assets/72x72/1f50d.png"
+    />
     <meta name="description" content={description} />
     <meta property="og:title" content={ogTitle} />
     {/* <meta property="og:description" content={description} /> */}
