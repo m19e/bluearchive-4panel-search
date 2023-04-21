@@ -63,7 +63,7 @@ type HeaderProps = {
   description: string
   ogImage: string
   ogTitle: string
-  twUrl: string
+  twUrl?: string
   twCard: "summary"
 }
 
@@ -80,13 +80,13 @@ const Header = ({
     <link rel="icon" href="/favicon.ico" />
     <meta name="description" content={description} />
     <meta property="og:title" content={ogTitle} />
-    <meta property="og:description" content={description} />
+    {/* <meta property="og:description" content={description} /> */}
     <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="article" />
     <meta property="twitter:title" content={ogTitle} />
-    <meta property="twitter:description" content={description} />
+    {/* <meta property="twitter:description" content={description} /> */}
     <meta property="twitter:image" content={ogImage} />
-    <meta property="twitter:url" content={twUrl} />
+    {/* <meta property="twitter:url" content={twUrl} /> */}
     <meta property="twitter:card" content={twCard} />
   </Head>
 )
