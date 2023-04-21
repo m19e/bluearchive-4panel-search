@@ -1,5 +1,7 @@
 import type { EMPTY_GROUPED_STUDENTS, SCHOOLS } from "@/consts"
 
+export type Lang = "ja" | "en"
+
 export type Panel = {
   id: string
   title: string

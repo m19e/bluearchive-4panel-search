@@ -13,7 +13,8 @@ export const NPC_URL =
   "https://m19e.github.io/bluearchive-4panel/students/npc/ja.json"
 
 export const SCHOOLS = {
-  kivotos: { id: "kivotos", ja: "キヴォトス", en: "Kivotos" },
+  // kivotos: { id: "kivotos", ja: "キヴォトス", en: "Kivotos" },
+  kivotos: { id: "kivotos", ja: "シャーレ", en: "SCHALE" },
   prime_student_council: {
     id: "prime_student_council",
     ja: "連邦生徒会",

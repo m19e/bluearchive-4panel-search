@@ -1,10 +1,4 @@
-const getEpisodeFromID = (id: string) => {
-  const digit3 = id.split("-")[1]
-  const is3 = digit3.length === 3
-  const digit2 = ("00" + digit3).slice(-2)
-
-  return { digit3, digit2, is3 }
-}
+import { getEpisodeFromID } from "@/utils"
 
 type Props = {
   id: string

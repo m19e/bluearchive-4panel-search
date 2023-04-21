@@ -11,5 +11,6 @@ export const allPanelsAtom = atom<{
 }>({ ja: [], en: [], aoharu: [] })
 export const groupedStudentsAtom = atom<GroupedStudents[]>([])
 export const selectedStudentsAtom = atom<Student[]>([])
+export const selectedPanelAtom = atom<PanelData | null>(null)
 
 // Selectors

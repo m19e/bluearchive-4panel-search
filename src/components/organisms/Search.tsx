@@ -5,6 +5,7 @@ import type { GroupedStudents, Student } from "@/types"
 import { useDebounceCallback } from "@/hooks/useDebounce"
 import { useFuse } from "@/hooks/useFuse"
 
+import { useLocale } from "@/hooks/useLocale"
 import { SelectedStudents } from "@/components/organisms/SelectedStudents"
 import { StudentList } from "@/components/molecules/StudentList"
 
@@ -35,6 +36,7 @@ export const Search = ({ data }: Props) => {
   })
   const [loading, setLoading] = useState(false)
   const debounce = useDebounceCallback()
+  const { t } = useLocale()
 
   const handleChange = (value: string) => {
     !loading && setLoading(true)
@@ -112,7 +114,7 @@ export const Search = ({ data }: Props) => {
                 <input
                   type="search"
                   aria-label="Search all students"
-                  placeholder="生徒の名前を検索..."
+                  placeholder={t.PLACEHOLDER}
                   onChange={(e) => handleChange(e.target.value)}
                   className="block py-6 pr-4 pl-9 w-full text-base text-slate-900 placeholder:text-slate-400 bg-transparent rounded-lg focus:outline-none transition appearance-none [&::-webkit-search-decoration]:appearance-none [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-results-button]:appearance-none [&::-webkit-search-results-decoration]:appearance-none sm:text-[0.8125rem] sm:leading-6"
                 />
@@ -137,9 +139,9 @@ export const Search = ({ data }: Props) => {
             <div className="p-0.5 bg-white rounded-sm">
               <div className="relative p-2.5 m-0.5 rounded-sm border border-slate-400">
                 {isEmpty ? (
-                  <div className="flex absolute inset-0 justify-center items-center border-sky-50">
+                  <div className="flex justify-center items-center p-8 border-sky-50">
                     <p className="text-sm font-medium text-neutral">
-                      検索にヒットする生徒がいません
+                      {t.NO_MATCH}
                     </p>
                   </div>
                 ) : (
