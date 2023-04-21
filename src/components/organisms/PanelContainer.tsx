@@ -1,14 +1,16 @@
 import Link from "next/link"
 
 import { usePanels } from "@/hooks"
+import { useLocale } from "@/hooks/useLocale"
 
 import { LangNav } from "@/components/molecules/LangNav"
 import { PanelList } from "@/components/molecules/PanelList"
 
 export const PanelContainer = () => {
+  const { t } = useLocale()
   const { data, result } = usePanels()
   const noResult = result.OR.length === 0
-  const resultData = [{ title: "検索結果", panels: result.OR }]
+  const resultData = [{ title: t.SEARCH_RESULT, panels: result.OR }]
 
   return (
     <div className="flex overflow-x-hidden justify-center">
