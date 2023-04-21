@@ -12,5 +12,6 @@ const ja = {
   META_DESCRIPTION:
     "ブルーアーカイブの公式4コマ漫画(日本版、グローバル版、あおはるレコード)を検索できるサービスです。",
   OG_TITLE: "ブルアカ4コマ検索",
+  SHARE: "共有",
 }
 export default ja
