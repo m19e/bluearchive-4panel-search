@@ -13,7 +13,7 @@ export const PanelList = ({ data }: Props) => {
   const categories = data.map((d) => <CategoryList key={d.title} {...d} />)
 
   return (
-    <div className="overflow-y-scroll p-2 pt-[120px] pb-[100px] space-y-1 w-full max-w-md h-64 bg-transparent sm:pt-[180px] sm:space-y-2 sm:h-96 skewed-list scrollbar-hidden">
+    <div className="overflow-y-scroll p-2 pt-[180px] pb-[100px] space-y-1 w-full max-w-md h-96 bg-transparent sm:space-y-2 skewed-list scrollbar-hidden">
       {categories}
     </div>
   )
@@ -34,12 +34,12 @@ const CategoryList = ({ title, panels }: CategoryData) => {
 
 const Category = ({ title }: { title: string }) => {
   return (
-    <div className="flex overflow-hidden relative gap-1 justify-end items-center py-3 px-8 w-full font-rounded bg-white rounded shadow-md skewed-item">
+    <div className="flex overflow-hidden relative gap-1 justify-end items-center py-2 px-8 w-full font-rounded bg-white rounded shadow-md sm:py-3 skewed-item">
       <div className="flex absolute bottom-0 -left-11 z-0 items-end skew-x-[30deg]">
         <div className="bg-gray-100 triangle"></div>
         <Marks />
       </div>
-      <p className="text-xl font-bold">{title}</p>
+      <p className="text-base font-bold sm:text-xl">{title}</p>
       <div className="absolute top-0 -right-11 z-0 skew-x-[30deg]">
         <div className="bg-gray-100 rotate-180 triangle"></div>
       </div>
