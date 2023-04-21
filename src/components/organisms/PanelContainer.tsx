@@ -9,7 +9,7 @@ import { PanelList } from "@/components/molecules/PanelList"
 const createShareURL = (locale: string) =>
   `https://twitter.com/intent/tweet?text=${encodeURIComponent(`#ブルアカ4コマ検索
 #BlueArchive4PanelSearch
-${process.env.NEXT_PUBLIC_SITE_ROOT_URL}${locale}`)}`
+${process.env.NEXT_PUBLIC_SITE_ROOT_URL + locale}`)}`
 
 export const PanelContainer = () => {
   const { t, locale } = useLocale()
