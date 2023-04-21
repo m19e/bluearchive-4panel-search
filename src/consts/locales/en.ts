@@ -6,5 +6,7 @@ const en = {
   NO_MATCH: "No students match",
   EPISODE_INFO: "Episode Info",
   STUDENTS: "Students",
+  OFFICIAL: "Official Link",
+  SEARCH_RESULT: "Search Result",
 }
 export default en
