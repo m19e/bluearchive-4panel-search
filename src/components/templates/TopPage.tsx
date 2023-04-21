@@ -2,8 +2,8 @@ import Head from "next/head"
 import Script from "next/script"
 
 import type { GroupedStudents } from "@/types"
-
 import { useLocale } from "@/hooks/useLocale"
+
 import { ModalDialog } from "@/components/organisms/Modal/Dialog"
 import { PanelContainer } from "@/components/organisms/PanelContainer"
 import { Search } from "@/components/organisms/Search"
@@ -72,7 +72,6 @@ const Header = ({
   description,
   ogTitle,
   ogImage,
-  twUrl,
   twCard,
 }: HeaderProps) => (
   <Head>
@@ -84,13 +83,13 @@ const Header = ({
     />
     <meta name="description" content={description} />
     <meta property="og:title" content={ogTitle} />
-    {/* <meta property="og:description" content={description} /> */}
     <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="article" />
     <meta property="twitter:title" content={ogTitle} />
-    {/* <meta property="twitter:description" content={description} /> */}
     <meta property="twitter:image" content={ogImage} />
-    {/* <meta property="twitter:url" content={twUrl} /> */}
     <meta property="twitter:card" content={twCard} />
+    {/* <meta property="og:description" content={description} /> */}
+    {/* <meta property="twitter:description" content={description} /> */}
+    {/* <meta property="twitter:url" content={twUrl} /> */}
   </Head>
 )
