@@ -18,7 +18,7 @@ export const PanelContainer = () => {
         <div className="flex absolute top-0 z-10 px-4 w-full md:justify-end">
           <header className="flex justify-between items-center px-4 w-full h-8 bg-sky-50 rounded-b-md shadow-md md:w-auto">
             <Link href="/" locale="ja">
-              <a className="flex gap-1 text-lg font-black cursor-pointer sm:text-xl md:hidden">
+              <a className="flex gap-1 text-base font-black cursor-pointer sm:text-xl md:hidden">
                 <p>
                   <span className="text-kivotos">B</span>lue Archive
                 </p>
