@@ -15,18 +15,14 @@ export const PanelContainer = () => {
   return (
     <div className="flex overflow-x-hidden justify-center">
       <div className="flex relative justify-end w-full max-w-screen-lg">
-        <div className="flex absolute top-0 z-10 px-4 w-full md:justify-end">
-          <header className="flex justify-between items-center px-4 w-full h-8 bg-sky-50 rounded-b-md shadow-md md:w-auto">
+        <div className="flex absolute top-0 z-10 w-full md:justify-end md:px-4">
+          <header className="flex justify-between items-center px-2 w-full h-8 bg-sky-50 shadow-md md:px-4 md:w-auto md:rounded-b-md">
             <Link href="/" locale="ja">
-              <a className="flex gap-1 text-base font-black cursor-pointer sm:text-xl md:hidden">
-                <p>
+              <a className="flex text-sm font-black cursor-pointer sm:text-base md:hidden">
+                <p className="whitespace-pre-line">
                   <span className="text-kivotos">B</span>lue Archive
-                </p>
-                <p>
-                  <span className="text-kivotos">4</span>-Panel
-                </p>
-                <p>
-                  <span className="text-kivotos">S</span>earch
+                  <span className="text-kivotos"> 4</span>-Panel
+                  <span className="text-kivotos"> S</span>earch
                 </p>
               </a>
             </Link>
@@ -44,7 +40,9 @@ export const PanelContainer = () => {
                 >
                   <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0 0 20 3.92a8.19 8.19 0 0 1-2.357.646 4.118 4.118 0 0 0 1.804-2.27 8.224 8.224 0 0 1-2.605.996 4.107 4.107 0 0 0-6.993 3.743 11.65 11.65 0 0 1-8.457-4.287 4.106 4.106 0 0 0 1.27 5.477A4.073 4.073 0 0 1 .8 7.713v.052a4.105 4.105 0 0 0 3.292 4.022 4.095 4.095 0 0 1-1.853.07 4.108 4.108 0 0 0 3.834 2.85A8.233 8.233 0 0 1 0 16.407a11.615 11.615 0 0 0 6.29 1.84"></path>
                 </svg>
-                <span className="sr-only sm:not-sr-only">{t.SHARE}</span>
+                <span className="text-xs sr-only sm:not-sr-only">
+                  {t.SHARE}
+                </span>
               </a>
             </div>
           </header>
