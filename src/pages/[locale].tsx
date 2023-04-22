@@ -1,4 +1,4 @@
-import type { InferGetStaticPropsType, NextPage } from "next"
+import type { GetStaticPaths, InferGetStaticPropsType, NextPage } from "next"
 
 import { getAllData, HydrateAtoms } from "@/utils"
 import { allPanelsAtom } from "@/stores"
@@ -13,6 +13,12 @@ const Page: NextPage<Props> = ({ panels, students }) => {
       <TopPage students={students} />
     </HydrateAtoms>
   )
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = [{ params: { locale: "/ja" } }, { params: { locale: "/en" } }]
+
+  return { paths, fallback: false }
 }
 
 export const getStaticProps = async () => {
