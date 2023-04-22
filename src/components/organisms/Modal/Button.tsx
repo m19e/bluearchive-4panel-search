@@ -9,11 +9,11 @@ export const ModalButton = ({ onClick }: Props) => {
 
   return (
     <label
-      className="flex justify-center py-1 w-12 bg-sky-300 rounded-sm sm:py-2 sm:w-24"
+      className="flex w-14 justify-center rounded-sm bg-sky-300 py-1.5 sm:w-24 sm:py-2"
       htmlFor="modal"
       onClick={onClick}
     >
-      <p className="font-medium leading-3 sm:text-sm text-2xs">
+      <p className="text-2xs font-medium leading-3 sm:text-sm">
         {t.ENTER_PANEL}
       </p>
     </label>
