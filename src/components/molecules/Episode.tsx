@@ -11,17 +11,17 @@ export const Episode = ({ id }: Props) => {
   return (
     <>
       <div className={`absolute bottom-0 z-0 skew-x-[30deg] ${triangleLeft}`}>
-        <div className="bg-sky-100 triangle"></div>
+        <div className="triangle bg-sky-100"></div>
       </div>
       {is3 ? (
         <div className="absolute bottom-0 left-[2px] z-10">
-          <p className="font-medium leading-3 text-center sm:leading-4 text-2xs">
+          <p className="text-center text-xs font-medium leading-3 sm:leading-4">
             {digit3}
           </p>
         </div>
       ) : (
         <div className="absolute bottom-0 left-1 z-10">
-          <p className="font-medium leading-3 text-center sm:text-xs sm:leading-4 text-2xs">
+          <p className="text-center text-xs font-medium leading-3 sm:text-xs sm:leading-4">
             {digit2}
           </p>
         </div>

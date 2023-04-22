@@ -6,7 +6,7 @@ export const LangNav = () => {
   const { locale } = useLocale()
 
   return (
-    <div className="flex gap-1 text-xs font-black leading-6">
+    <div className="flex gap-1 items-center text-xs font-black leading-6">
       {langs[locale]}
     </div>
   )

@@ -1,11 +1,11 @@
-import type { InferGetServerSidePropsType, NextPage } from "next"
+import type { GetStaticPaths, InferGetStaticPropsType, NextPage } from "next"
 
 import { getAllData, HydrateAtoms } from "@/utils"
 import { allPanelsAtom } from "@/stores"
 
 import { TopPage } from "@/components/templates/TopPage"
 
-type Props = InferGetServerSidePropsType<typeof getServerSideProps>
+type Props = InferGetStaticPropsType<typeof getStaticProps>
 
 const Page: NextPage<Props> = ({ panels, students }) => {
   return (
@@ -15,7 +15,13 @@ const Page: NextPage<Props> = ({ panels, students }) => {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = [{ params: { locale: "/ja" } }, { params: { locale: "/en" } }]
+
+  return { paths, fallback: false }
+}
+
+export const getStaticProps = async () => {
   const props = await getAllData()
 
   return {
