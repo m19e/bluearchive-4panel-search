@@ -16,7 +16,7 @@ const Page: NextPage<Props> = ({ panels, students }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = [{ params: { locale: "/ja" } }, { params: { locale: "/en" } }]
+  const paths = ["/ja", "/en"].map((locale) => ({ params: { locale } }))
 
   return { paths, fallback: false }
 }
