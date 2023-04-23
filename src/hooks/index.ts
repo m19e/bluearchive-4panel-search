@@ -35,7 +35,7 @@ export const usePanels = () => {
     () =>
       selectedStudents.map((s) => ({
         $path: ["students", "id"],
-        $val: s.id,
+        $val: `=${s.id}`,
       })),
     [selectedStudents]
   )
@@ -44,6 +44,7 @@ export const usePanels = () => {
     options: {
       threshold: 0,
       keys: [["students", "id"]],
+      useExtendedSearch: true,
     },
     query: {
       $or: selectedQuery,
