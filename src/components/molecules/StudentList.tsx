@@ -32,10 +32,12 @@ const School = ({ id, students }: { id: SchoolID; students: Student[] }) => {
 
   return (
     <div className="max-w-full lg:max-w-[calc(50%-0.25rem)]">
-      <h3 className="text-lg font-bold border-b-2 border-neutral">
-        <span className="text-neutral">{SCHOOLS[id][locale]}</span>
+      <h3 className="border-b-2 border-neutral text-lg font-bold">
+        <span className="whitespace-nowrap text-neutral">
+          {SCHOOLS[id][locale]}
+        </span>
       </h3>
-      <div className="flex flex-wrap gap-0.5 mt-1">{studentList}</div>
+      <div className="mt-1 flex flex-wrap gap-0.5">{studentList}</div>
     </div>
   )
 }
