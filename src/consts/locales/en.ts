@@ -12,6 +12,6 @@ const en = {
   META_DESCRIPTION:
     "Search Blue Archive Official 4-Panel Manga(JA, EN, Aoharu Record).",
   OG_TITLE: "BlueArchive4PanelSearch",
-  SHARE: "Share"
+  SHARE: "Share",
 }
 export default en
