@@ -46,7 +46,7 @@ export const TopPage = ({ students }: Props) => {
         twUrl={process.env.NEXT_PUBLIC_SITE_ROOT_URL ?? ""}
         twCard="summary"
       />
-      <div className="flex flex-col min-h-screen font-rounded bg-triangle">
+      <div className="bg-triangle flex min-h-screen flex-col font-rounded">
         <div className="flex-1">
           <PanelContainer />
           <Search data={students} />
@@ -77,7 +77,7 @@ const Header = ({
   <Head>
     <title>{title}</title>
     <link
-      rel="icon alternate"
+      rel="icon"
       type="image/png"
       href="https://cdn.jsdelivr.net/gh/twitter/twemoji@v14.0.2/assets/72x72/1f50d.png"
     />
