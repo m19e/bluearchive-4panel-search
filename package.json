@@ -12,6 +12,7 @@
     "sd-gen": "scaffdog generate"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.0.1",
     "daisyui": "^2.6.0",
     "fuse.js": "^6.6.2",
     "jotai": "^2.0.3",
