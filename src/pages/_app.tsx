@@ -1,4 +1,5 @@
 import type { AppProps } from "next/app"
+import { Analytics } from "@vercel/analytics/react"
 import { Provider as JotaiProvider } from "jotai"
 import { ThemeProvider } from "next-themes"
 
@@ -10,11 +11,14 @@ const App = ({ Component, pageProps }: AppProps) => {
   usePageView()
 
   return (
-    <JotaiProvider>
-      <ThemeProvider>
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </JotaiProvider>
+    <>
+      <JotaiProvider>
+        <ThemeProvider>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </JotaiProvider>
+      <Analytics />
+    </>
   )
 }
 
