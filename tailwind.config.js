@@ -4,7 +4,7 @@ module.exports = {
     extend: {
       colors: {
         kivotos: "#00AEE1",
-        prime_student_council: "#00AEE1",
+        general_student_council: "#00AEE1",
         etc: "#00aee1",
         abydos: "#2a928f",
         gehenna: "#a6465c",

@@ -15,10 +15,10 @@ export const NPC_URL =
 export const SCHOOLS = {
   // kivotos: { id: "kivotos", ja: "キヴォトス", en: "Kivotos" },
   kivotos: { id: "kivotos", ja: "シャーレ", en: "SCHALE" },
-  prime_student_council: {
-    id: "prime_student_council",
+  general_student_council: {
+    id: "general_student_council",
     ja: "連邦生徒会",
-    en: "Prime Student Council",
+    en: "General Student Council",
   },
   abydos: { id: "abydos", ja: "アビドス", en: "Abydos" },
   gehenna: { id: "gehenna", ja: "ゲヘナ", en: "Gehenna" },
@@ -37,7 +37,7 @@ export const SCHOOLS = {
 
 export const EMPTY_GROUPED_STUDENTS: { [key in SchoolID]: Student[] } = {
   kivotos: [],
-  prime_student_council: [],
+  general_student_council: [],
   abydos: [],
   gehenna: [],
   millennium: [],
