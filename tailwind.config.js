@@ -5,7 +5,6 @@ module.exports = {
       colors: {
         kivotos: "#00AEE1",
         schale: "#00AEE1",
-        angel_24: "#00AEE1",
         general_student_council: "#00AEE1",
         etc: "#00aee1",
         abydos: "#2a928f",
