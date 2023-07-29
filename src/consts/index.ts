@@ -13,8 +13,9 @@ export const NPC_URL =
   "https://m19e.github.io/bluearchive-4panel/students/npc/ja.json"
 
 export const SCHOOLS = {
-  // kivotos: { id: "kivotos", ja: "キヴォトス", en: "Kivotos" },
   kivotos: { id: "kivotos", ja: "シャーレ", en: "SCHALE" },
+  schale: { id: "schale", ja: "シャーレ", en: "SCHALE" },
+  angel_24: { id: "angel_24", ja: "エンジェル24", en: "Angel 24" },
   general_student_council: {
     id: "general_student_council",
     ja: "連邦生徒会",
@@ -31,12 +32,14 @@ export const SCHOOLS = {
   arius: { id: "arius", ja: "アリウス", en: "Arius" },
   srt: { id: "srt", ja: "SRT", en: "SRT" },
   kronos: { id: "kronos", ja: "クロノス", en: "Kronos" },
-  others_students: { id: "others_students", ja: "不明", en: "Others Students" },
+  other_student: { id: "other_student", ja: "不明", en: "Other Student" },
   etc: { id: "etc", ja: "その他", en: "ETC" },
 } as const
 
 export const EMPTY_GROUPED_STUDENTS: { [key in SchoolID]: Student[] } = {
   kivotos: [],
+  schale: [],
+  angel_24: [],
   general_student_council: [],
   abydos: [],
   gehenna: [],
@@ -49,6 +52,6 @@ export const EMPTY_GROUPED_STUDENTS: { [key in SchoolID]: Student[] } = {
   arius: [],
   srt: [],
   kronos: [],
-  others_students: [],
+  other_student: [],
   etc: [],
 }
