@@ -18,7 +18,7 @@ module.exports = {
         arius: "#6D6E6C",
         srt: "#90abc9",
         kronos: "#f5eb75",
-        other_student: "#000",
+        other_students: "#000",
       },
       fontFamily: {
         latego: ["GenEiLateGo"],

@@ -31,7 +31,7 @@ export const SCHOOLS = {
   arius: { id: "arius", ja: "アリウス", en: "Arius" },
   srt: { id: "srt", ja: "SRT", en: "SRT" },
   kronos: { id: "kronos", ja: "クロノス", en: "Kronos" },
-  other_student: { id: "other_student", ja: "不明", en: "Other Student" },
+  other_students: { id: "other_students", ja: "不明", en: "Other Students" },
   etc: { id: "etc", ja: "その他", en: "ETC" },
 } as const
 
@@ -50,6 +50,6 @@ export const EMPTY_GROUPED_STUDENTS: { [key in SchoolID]: Student[] } = {
   arius: [],
   srt: [],
   kronos: [],
-  other_student: [],
+  other_students: [],
   etc: [],
 }
