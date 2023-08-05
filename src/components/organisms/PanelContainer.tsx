@@ -21,7 +21,7 @@ export const PanelContainer = () => {
     <div className="flex justify-center overflow-x-hidden">
       <div className="relative flex w-full max-w-screen-lg justify-end">
         <div className="absolute top-0 z-10 flex w-full md:justify-end md:px-4">
-          <header className="min-h-8 flex w-full flex-col bg-sky-50 p-2 shadow-md sm:flex-row sm:items-center sm:justify-between sm:py-0 md:w-auto md:rounded-b-md md:px-4">
+          <header className="min-h-8 flex w-full justify-between bg-sky-50 p-2 shadow-md md:w-auto md:rounded-b-md md:px-4">
             <Link href="/" locale="ja">
               <a className="flex cursor-pointer font-black sm:text-xl md:hidden">
                 <p className="whitespace-pre-line">
