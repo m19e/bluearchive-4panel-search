@@ -31,11 +31,11 @@ export const PanelContainer = () => {
                 </p>
               </a>
             </Link>
-            <div className="flex items-center justify-end gap-2 sm:justify-start">
+            <div className="flex items-center justify-end gap-1 sm:justify-start sm:gap-2">
               <Language />
               <span className="text-slate-600/50">/</span>
               <a
-                className="-mx-1.5 -my-1 flex items-center gap-2 rounded-lg px-1.5 py-1 text-[0.8125rem] font-extrabold leading-6 text-slate-900"
+                className="-m-1 flex items-center gap-2 rounded-lg px-1.5 py-1 text-[0.8125rem] font-extrabold leading-6 text-slate-900"
                 href={createShareURL(locale)}
                 target="_blank"
                 rel="noopener noreferrer"
