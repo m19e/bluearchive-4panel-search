@@ -36,7 +36,7 @@ export const getAllPanels = async () => {
   const replaceStudents = (panels: Panel[]): PanelData[] => {
     return panels.map((p) => ({
       ...p,
-      students: p.students.map((s) => allStudents[s]),
+      students: p.students.map((s) => allStudents[s]).filter((s) => s),
     }))
   }
 
