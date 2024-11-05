@@ -18,6 +18,8 @@ module.exports = {
         arius: "#6D6E6C",
         srt: "#90abc9",
         kronos: "#f5eb75",
+        highlander: "#63929c",
+        wild_hunt: "#9e7aa9",
         other_students: "#000",
       },
       fontFamily: {
