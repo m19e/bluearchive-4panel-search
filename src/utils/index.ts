@@ -57,7 +57,7 @@ const getGroupedStudents = (panels: PanelData[]) => {
 
   Object.values(uniq).forEach((student) => {
     const { school } = student
-    if (school && Object.hasOwn(result, school)) {
+    if (school && result.hasOwnProperty(school)) {
       result[school] = [...result[school], student]
     }
   })
